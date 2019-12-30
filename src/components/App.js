@@ -1,20 +1,24 @@
 import React from 'react';
 import '../styles/App.scss';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import Landing from './landing/Landing';
-import Inspiro from './inspiro/Inspiro';
+import Main from './main/Main';
 
-function App() {
-  return (
-    <Router>
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
       <div className="App">
         <Switch>
-          <Route path="/" exact component={Landing} />
-          <Route path="/inspiro" component={Inspiro} />
+          <Route exact path="/landing" component={Landing} />
+          <Route path="/desktop" component={Main} />
         </Switch>
       </div>
-    </Router>
-  );
+    );
+  }
 }
 
 export default App;
