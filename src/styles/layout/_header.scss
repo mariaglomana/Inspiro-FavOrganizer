@@ -1,0 +1,16 @@
+.header {
+    &__wrapper {
+        height: 13vh;
+        
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid black;
+    }
+    &-content__wrapper {
+        margin: 0 25px;
+    }
+    &-logo {
+        width: 25vw;
+    }
+}

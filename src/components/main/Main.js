@@ -38,17 +38,15 @@ class Main extends React.Component {
 
     render() {
         return (
-            <div className="Main__wrapper">
+            <div >
                 <Header />
-                <div className="Main-main__wrapper">
-                    <Search
-                    //     isLoading={this.state.loading}
-                    //     searchText={this.state.searchText}
-                    //     search={this.search}
-                    //     handleSearch={this.handleSearch}
-                    />
-                    <Menu />
-                </div>
+                <Search
+                //     isLoading={this.state.loading}
+                //     searchText={this.state.searchText}
+                //     search={this.search}
+                //     handleSearch={this.handleSearch}
+                />
+                <Menu />
                 <Footer />
             </div >
         );

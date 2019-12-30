@@ -1,0 +1,23 @@
+.landing__main {
+    &--wrapper {
+        height: 80vh;       
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    &--button {
+        margin: 20px;
+    }
+}
+
+.landing-logo {
+    &__wrapper {
+        margin: 20px;
+    }
+    &__img {
+        width: 60vw;
+    }
+}
+    

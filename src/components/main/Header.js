@@ -5,21 +5,14 @@ import logoInspiro from '../../images/logoInspiro.png';
 class Header extends React.Component {
     constructor(props) {
         super(props);
-
-
     }
-
-
-
     render() {
         return (
-            <div className="Header__wrapper">
-                <div className="landing__main--logo">
-                    <img className="" src={logoInspiro} alt="Logo Inspiro" />
+            <header className="header__wrapper ">
+                <div className="header-content__wrapper">
+                    <img className="header-logo" src={logoInspiro} alt="Logo Inspiro" />
                 </div>
-
-
-            </div >
+            </header >
         );
     }
 }

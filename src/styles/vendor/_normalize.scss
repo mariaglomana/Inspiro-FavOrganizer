@@ -22,6 +22,8 @@ html {
 
 body {
   margin: 0;
+  box-sizing: content-box;
+
 }
 
 /**
@@ -361,3 +363,7 @@ fieldset{
   border: none;
   padding: 0;
 } 
+
+.App {
+  height: 100vh;
+}

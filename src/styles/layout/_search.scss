@@ -1,0 +1,15 @@
+.search {
+    &__wrapper {
+        height: 20vh;       
+        background-color: cadetblue;
+    }
+    &-form__wrapper {
+        margin: 0 25px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+}
+

@@ -10,14 +10,14 @@ const Landing = () => {
     };
 
     return (
-        <main className="landing__main">
-            <div className="landing__main--logo">
-                <img className="" src={logoInspiro} alt="Logo Inspiro" />
+        <main className="landing__main--wrapper">
+            <div className="landing-logo__wrapper">
+                <img className="landing-logo__img" src={logoInspiro} alt="Logo Inspiro" />
             </div>
-            <Link to='/desktop' style={linkStyle}>
-                <div className="landing__button">
+            <Link to='/' style={linkStyle}>
+                <button className="landing__main--button">
                     <a href=""><span className="">Inicio</span></a>
-                </div>
+                </button>
             </Link>
         </main>
 
