@@ -1,7 +1,7 @@
 .search {
     &__wrapper {
         height: 20vh;       
-        background-color: cadetblue;
+        background-color: $blue;
     }
     &-form__wrapper {
         margin: 0 25px;
@@ -11,5 +11,16 @@
         align-items: center;
         justify-content: space-evenly;
     }
+    &-inputText__wrapper {
+        display: flex;
+    }
+    
+}
+.fa-search {
+    display: inline;
+    padding: 10px;
+}
+.form__input-text{
+    margin-right: 36px;
 }
 

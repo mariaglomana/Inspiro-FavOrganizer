@@ -1,8 +1,12 @@
 import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
-import Search from './Search';
-import Menu from './Menu';
+import Home from './Home';
+import Music from './Music';
+import Books from './Books';
+import Films from './Films';
+import Notes from './Notes';
 
 class Main extends React.Component {
     constructor(props) {
@@ -40,13 +44,15 @@ class Main extends React.Component {
         return (
             <div >
                 <Header />
-                <Search
-                //     isLoading={this.state.loading}
-                //     searchText={this.state.searchText}
-                //     search={this.search}
-                //     handleSearch={this.handleSearch}
-                />
-                <Menu />
+                <main>
+                    <Switch>
+                        <Route exact path="/" component={Home} />
+                        <Route path="/music" componenet={Music} />
+                        <Route path="/books" componenet={Books} />
+                        <Route path="/films" componenet={Films} />
+                        <Route path="/notes" componenet={Notes} />
+                    </Switch>
+                </main>
                 <Footer />
             </div >
         );

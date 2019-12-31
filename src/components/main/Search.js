@@ -12,6 +12,7 @@ class Search extends React.Component {
     render() {
         return (
             <div className="search__wrapper">
+
                 {/* <Loader isLoading={this.props.loading} /> */}
                 <form className="search-form__wrapper"
                 // onSubmit={this.formHandle}
@@ -20,14 +21,18 @@ class Search extends React.Component {
                         htmlFor="search"
                         className="form__label"
                     ></label>
-                    <input
-                        type="text"
-                        id="search"
-                        name="search"
-                        className="form__input-text"
-                    // value={this.props.searchText}
-                    // onChange={this.handleSearch}
-                    />
+                    <div className="search-inputText__wrapper">
+                        <i class="fas fa-search"></i>
+                        <input
+                            type="text"
+                            id="search"
+                            name="search"
+                            className="form__input-text"
+                        // value={this.props.searchText}
+                        // onChange={this.handleSearch}
+                        />
+
+                    </div>
                     <input
                         type="submit"
                         className="form__btn"

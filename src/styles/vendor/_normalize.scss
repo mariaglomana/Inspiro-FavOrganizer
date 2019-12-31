@@ -344,6 +344,7 @@ template {
 
 a{
   text-decoration: none;
+  color: black;
 }
 
 *{
@@ -364,6 +365,9 @@ fieldset{
   padding: 0;
 } 
 
-.App {
-  height: 100vh;
+// .App {
+//   height: 100vh;
+// }
+body {
+  font-family: $kulim;
 }

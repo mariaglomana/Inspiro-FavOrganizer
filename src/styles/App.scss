@@ -1,10 +1,12 @@
-// Vendor
-@import 'vendor/normalize';
 
 // Core
 @import 'core/functions';
 @import 'core/variables';
 //@import 'core/mixins';
+
+// Vendor
+@import 'vendor/normalize';
+
 
 // Pages
 @import 'pages/landing';
@@ -15,3 +17,4 @@
 @import 'layout/search';
 @import 'layout/menu';
 @import 'layout/footer';
+@import 'layout/section';
