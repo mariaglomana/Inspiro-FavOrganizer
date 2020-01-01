@@ -1,6 +1,6 @@
 # Inspira - App para la organización de tus recursos favoritos
 
-> Este es un proyecto personal iniciado durante el desarrollo de un curso de programación Front-End en [Adalab] (https://adalab.es/)
+> Este es un proyecto personal iniciado durante el desarrollo de un curso de programación Front-End en [Adalab](https://adalab.es/)
 
 ## Objetivos personales
 
@@ -33,7 +33,7 @@ Con el objetivo de poner fin a este sufrimiento pensé en programar una aplicaci
   - Que muestre listados filtrados por diferentes criterios.
   - Que contenga una sección de anotaciones en las que guardar comentarios y enlaces a los recursos.
   - Que guarde mis datos de una sesión a otra.
-  - Que permita traer mis listas de elementos favoritos ya guardadas en páginas especializadas en un tipo de recurso ([Spotify] (https://www.spotify.com/), [goodreads] (https://www.goodreads.com/) y [Letterboxd] (https://letterboxd.com/))
+  - Que permita traer mis listas de elementos favoritos ya guardadas en páginas especializadas en un tipo de recurso ([Spotify](https://www.spotify.com/), [goodreads](https://www.goodreads.com/) y [Letterboxd](https://letterboxd.com/))
   - Que permita interactuar con otros usuarios de la aplicación compartiendo mis elementos favoritos.
 
 
