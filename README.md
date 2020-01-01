@@ -1,68 +1,44 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Inspira - App para la organización de tus recursos favoritos
 
-## Available Scripts
+> Este es un proyecto personal iniciado durante el desarrollo de un curso de programación Front-End en [Adalab] (https://adalab.es/)
 
-In the project directory, you can run:
+## Objetivos personales
 
-### `yarn start`
+Mis objetivos personales con este proyecto son:
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Mejorar mis conocimientos de CSS:
+  - Definición de una guía de estilo.
+  - Integración de animaciones en fondos y activadas por el usuario.
+  - Dominar Flexbox y posicionamiento de elementos.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- Mejorar mis conocimientos de JavaScript y React:
+  - Conseguir una SPA dinámica e interactiva con React Router.
+  - Realización de llamadas a varias APIs diferentes en serie o en paralelo.
+  - Dominar eventos, estados y los métodos del ciclo de vida de los componentes de React.
+  - Crear un código optimizado y de fácil mantenimiento.
 
-### `yarn test`
+- Mejorar cualidades complementarias a la programación:
+  - Realizar un diseño de la interfaz de usuario atractivo a la vez que práctico y adaptable a diferentes dispositivos.
+  - Ganar experiencia en la planificación y desarrollo de un producto digital desde cero.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Objetivo del proyecto
 
-### `yarn build`
+El objetivo de la aplicación sería proporcionar un único espacio en el que reunir y tener a mano las cosas que más te gustan, esas que te apasionan e inspiran.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Me ocurre a menudo que me recomiendan algún músico, libro o película y para poder recordarlos los apunto en notas separadas e inconexas que acabo olvidando. Si guardo el elemento como favorito en una aplicación dedicada exclusivamente a ese recurso, echo en falta poder añadir una referencia personal que me haga encontrarlo tiempo después, de forma que cuando tenga un momento libre en el que me gustaría conocer mejor ese cantante/ ver esa película/ buscar ese libro, simplemente no soy capaz de encontrarlo y pierdo ese precioso tiempo de relax navegando en un mar de cosas que no me interesan.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Con el objetivo de poner fin a este sufrimiento pensé en programar una aplicación web con las siguientes funcionalidades:
+  - Que permita hacer búsquedas de diferentes recursos: música, libros o películas.
+  - Que pueda guardar elementos de forma personalizada, añadiendo comentarios y una clasificación propia.
+  - Que muestre listados filtrados por diferentes criterios.
+  - Que contenga una sección de anotaciones en las que guardar comentarios y enlaces a los recursos.
+  - Que guarde mis datos de una sesión a otra.
+  - Que permita traer mis listas de elementos favoritos ya guardadas en páginas especializadas en un tipo de recurso ([Spotify] (https://www.spotify.com/), [goodreads] (https://www.goodreads.com/) y [Letterboxd] (https://letterboxd.com/))
+  - Que permita interactuar con otros usuarios de la aplicación compartiendo mis elementos favoritos.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+## Fases del proyecto
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- [Fase 1](./FASE-1.md)
+- [Fase 2](./FASE-2.md)
+- [Fase 3](./FASE-3.md)
