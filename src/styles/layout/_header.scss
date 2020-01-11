@@ -16,16 +16,37 @@
 
     &-nav__wrapper {
         height: 8vh;
-        background-color: black;
-        color: white;
-        font-weight: 500;
+        font-weight: 700;
         
     }
-    &-navigation {
-        margin: 0 25px;
+    &-nav {
         height: 100%;
         display: flex;
         justify-content: space-around;
         align-items: center;
+
+        &__item {
+            flex-grow: 1;
+            height: 100%;
+            display: flex;
+        }
+    }
+}
+
+.nav-link {
+    flex-grow: 1;
+    text-align: center;
+    vertical-align: middle; 
+    //No se cómo centrar verticalmente el texto.. esto no sirve. He puesto un parche con la sig. línea (padding)
+    padding-top: 10px;
+
+    &--active {
+        background-color: $orange;
+        color: black;
+        }
+    &--normal {
+        background-color: black;
+        color: white;
+        flex-grow: 1;
     }
 }
