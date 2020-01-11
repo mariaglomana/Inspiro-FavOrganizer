@@ -10,6 +10,7 @@ Mis objetivos personales con este proyecto son:
   - Definición de una guía de estilo.
   - Integración de animaciones en fondos y activadas por el usuario.
   - Dominar Flexbox y posicionamiento de elementos.
+  - Conocimiento de una librera de diseño como Material Design
 
 - Mejorar mis conocimientos de JavaScript y React:
   - Conseguir una SPA dinámica e interactiva con React Router.
@@ -23,11 +24,13 @@ Mis objetivos personales con este proyecto son:
 
 ## Objetivo del proyecto
 
-El objetivo de la aplicación sería proporcionar un único espacio en el que reunir y tener a mano las cosas que más te gustan, esas que te apasionan e inspiran.
+El objetivo de la aplicación sería proporcionar un único espacio en el que reunir las cosas que más te gustan, que te apasionan e inspiran. 
 
-Me ocurre a menudo que me recomiendan algún músico, libro o película y para poder recordarlos los apunto en notas separadas e inconexas que acabo olvidando. Si guardo el elemento como favorito en una aplicación dedicada exclusivamente a ese recurso, echo en falta poder añadir una referencia personal que me haga encontrarlo tiempo después, de forma que cuando tenga un momento libre en el que me gustaría conocer mejor ese cantante/ ver esa película/ buscar ese libro, simplemente no soy capaz de encontrarlo y pierdo ese precioso tiempo de relax navegando en un mar de cosas que no me interesan.
+Con esta aplición podrás explorar, guardar y organizar en un lugar siempre accesible toda tu **música**, **libros** y **películas** preferidos, pudiendo añadir una referencia personal a cada elemento que facilite encontrarlo tiempo después. También podrás compartir con otros usuarios tus recomendaciones o ver sus listas de favoritos. Por último, la sección de **notas** te permite también tener a mano un diario, o un editor en el que registrar tus ideas, los borradores de tus publicaciones o tus artículos.
 
-Con el objetivo de poner fin a este sufrimiento pensé en programar una aplicación web con las siguientes funcionalidades:
+## Características generales
+
+La web contará con las siguientes funcionalidades:
   - Que permita hacer búsquedas de diferentes recursos: música, libros o películas.
   - Que pueda guardar elementos de forma personalizada, añadiendo comentarios y una clasificación propia.
   - Que muestre listados filtrados por diferentes criterios.
