@@ -1,21 +1,23 @@
 import React from 'react';
-import Search from './Search';
-import Menu from './Menu';
+// import Search from './Search';
+// import Menu from './Menu';
 
 class Home extends React.Component {
-    constructor(props) {
-        super(props);
-    };
+    // constructor(props) {
+    //     super(props);
+    // };
     render() {
         return (
             <React.Fragment>
-                <Search
+                <h1>¡Bienvenido a Inspiro!</h1>
+                {/* <Search
                 //     isLoading={this.state.loading}
                 //     searchText={this.state.searchText}
                 //     search={this.search}
                 //     handleSearch={this.handleSearch}
                 />
-                <Menu />
+                <Menu /> */}
+
             </React.Fragment>
         );
     }

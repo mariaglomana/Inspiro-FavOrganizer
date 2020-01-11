@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import Home from './Home';
@@ -18,43 +18,27 @@ class Main extends React.Component {
             loading: false,
             searchText: ''
         };
-        // this.search = this.search.bind(this);
-        // this.handleSearch = this.handleSearch.bind(this);
     }
 
-    // search() {
-    //     this.setState({
-    //         loading: true
-    //     });
-    //     getDataFromApi(this.state.searchText)
-    //         .then(data => {
-    //             this.setState({
-    //                 shows: data,
-    //                 loading: false
-    //             });
-    //         });
-    // }
-
-    // handleSearch(searchText) {
-    //     //localStorage.set('searchText', searchText);
-    //     this.setState({ searchText: searchText });
-    // }
 
     render() {
         return (
-            <div >
-                <Header />
-                <main>
+            <React.Fragment>
+                <Router>
+                    <Header />
+
                     <Switch>
-                        <Route exact path="/" component={Home} />
-                        <Route path="/music" componenet={Music} />
-                        <Route path="/books" componenet={Books} />
-                        <Route path="/films" componenet={Films} />
-                        <Route path="/notes" componenet={Notes} />
+                        <Route exact path="/home" component={Home} />
+                        <Route path="/home/music" component={Music} />
+                        <Route path="/home/books" component={Books} />
+                        <Route path="/home/films" component={Films} />
+                        <Route path="/home/notes" component={Notes} />
                     </Switch>
-                </main>
-                <Footer />
-            </div >
+
+                    <Footer />
+                </Router>
+            </React.Fragment>
+
         );
     }
 }

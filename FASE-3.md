@@ -15,6 +15,8 @@ Voy a necesitar:
 
 ### 3. Planificación
 
+Tareas de la fase 3:
+https://github.com/users/mariaglomana/projects/4
 
 ### 4. Desarrolla
 

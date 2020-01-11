@@ -1,22 +1,31 @@
 import React from 'react';
 import '../styles/App.scss';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
+import getDataFromServer from '../services/data';
+
 import Landing from './landing/Landing';
 import Main from './main/Main';
+//import MenuAppBar from './main/MenuAppBar';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
+  // constructor(props) {
+  //   super(props);
+  // }
+
+  componentDidMount() {
+    getDataFromServer();
   }
 
   render() {
     return (
-      <div className="App">
-        <Switch>
-          <Route exact path="/landing" component={Landing} />
-          <Route path="/" component={Main} />
-        </Switch>
-      </div>
+      <Router>
+        <div className="App">
+          <Switch>
+            <Route exact path="/" component={Landing} />
+            <Route path="/home" component={Main} />
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }

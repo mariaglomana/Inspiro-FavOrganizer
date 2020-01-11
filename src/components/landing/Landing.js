@@ -14,9 +14,9 @@ const Landing = () => {
             <div className="landing-logo__wrapper">
                 <img className="landing-logo__img" src={logoInspiro} alt="Logo Inspiro" />
             </div>
-            <Link to='/' style={linkStyle}>
+            <Link to='/home' style={linkStyle}>
                 <button className="landing__main--button">
-                    <a href=""><span className="">Inicio</span></a>
+                    <span className="">Inicio</span>
                 </button>
             </Link>
         </main>

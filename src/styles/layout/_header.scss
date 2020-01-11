@@ -1,16 +1,31 @@
 .header {
     &__wrapper {
-        height: 13vh;
-        
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        height: 18vh;
+          }
+    &-logo__wrapper {
+        height: 10vh;
         border-bottom: 1px solid black;
-    }
-    &-content__wrapper {
-        margin: 0 25px;
+        display: flex;
+        align-items: center;
     }
     &-logo {
         height: 5vh;
+        margin: 0 25px;
+
+    }
+
+    &-nav__wrapper {
+        height: 8vh;
+        background-color: black;
+        color: white;
+        font-weight: 500;
+        
+    }
+    &-navigation {
+        margin: 0 25px;
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
     }
 }
