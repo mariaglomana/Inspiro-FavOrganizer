@@ -1,5 +1,8 @@
-const BOOKSURL = './services/books.json';
+import BOOKS from '../api/books.js';
 
-const getDataFromServer = () => fetch(BOOKSURL).then(response => response.json());
+const getDataFromServer = () => {
+    //return fetch(BOOKSURL).then(response => response.json);
+    return BOOKS;
+};
 
 export default getDataFromServer;

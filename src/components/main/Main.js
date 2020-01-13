@@ -28,11 +28,11 @@ class Main extends React.Component {
                     <Header />
 
                     <Switch>
-                        <Route exact path="/home" component={Home} />
-                        <Route path="/home/music" component={Music} />
-                        <Route path="/home/books" component={Books} />
-                        <Route path="/home/films" component={Films} />
-                        <Route path="/home/notes" component={Notes} />
+                        <Route exact path="/" component={Home} />
+                        <Route path="/music" component={Music} />
+                        <Route path="/books" component={Books} />
+                        <Route path="/films" component={Films} />
+                        <Route path="/notes" component={Notes} />
                     </Switch>
 
                     <Footer />
