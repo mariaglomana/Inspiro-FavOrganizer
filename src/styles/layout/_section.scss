@@ -1,16 +1,25 @@
+.main-section {
+  &__wrapper {
+    padding: 2px 25px;
+    background-color: $grey-cloud;
+  }
+  &__title {
+    margin: 0;
+    padding: 20px 0;
+  }
+}
+
 .section {
-    &-main__wrapper {
-        background-color: $orange;
-    }
-    &-title {
-
-    }
-    &-container {
-
-    }
+  &-main__wrapper {
+    background-color: $orange;
+  }
+  &-title {
+  }
+  &-container {
+  }
 }
 
 .blue-background {
-    height: 16px;
-    background-color: $blue;
+  height: 16px;
+  background-color: $blue;
 }

@@ -1,47 +1,33 @@
-import React from 'react';
-import getDataFromServer from '../../services/data';
-import List from './List';
-
+import React from "react";
+import books from "../../services/books";
+import Search from "./Search";
+import List from "./List";
 
 class Books extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            items: []
-        }
-    }
-    componentDidMount() {
-        //Sustituir por la sig. cuando se arregle probl cargado info desd books.json
-        getDataFromServer().then(data => {
-            const items = data.results.map(task => {
-                return {
-                    ...items,
-                    favourite: false
-                };
-            });
-            this.setState({ items: items });
-        });
+  constructor(props) {
+    super(props);
+    this.state = {
+      items: []
+    };
+  }
 
-        // const data = getDataFromServer();
-        // this.setState({ items: data.results });
-    }
+  componentDidMount() {
+    this.setState({ items: books.results });
+  }
 
-    // handleFavouriteStatus(id){
+  render() {
+    console.log(this.state.items);
 
-    // }
-
-    render() {
-        console.log(this.state.items);
-
-        return (
-            <div >
-                <h1>Sección de libros</h1>
-                <List items={this.state.items} />
-            </div >
-        );
-    }
-
+    return (
+      <div>
+        <Search />
+        <div className="main-section__wrapper">
+          <h1 className="main-section__title">Tus libros</h1>
+          <List items={this.state.items} />
+        </div>
+      </div>
+    );
+  }
 }
-
 
 export default Books;

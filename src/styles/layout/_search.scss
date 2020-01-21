@@ -1,26 +1,24 @@
 .search {
-    &__wrapper {
-        height: 20vh;       
-        background-color: $blue;
-    }
-    &-form__wrapper {
-        margin: 0 25px;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-evenly;
-    }
-    &-inputText__wrapper {
-        display: flex;
-    }
-    
+  &__wrapper {
+    height: 14vh;
+    background-color: $orange;
+  }
+  &-form__wrapper {
+    margin: 0 25px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  &-inputText__wrapper {
+    display: flex;
+  }
 }
 .fa-search {
-    display: inline;
-    padding: 10px;
+  display: inline;
+  padding: 10px;
 }
-.form__input-text{
-    margin-right: 36px;
+.form__input-text {
+  margin-right: 36px;
 }
-

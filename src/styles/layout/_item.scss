@@ -1,0 +1,35 @@
+.item {
+  &__wrapper {
+    display: flex;
+    padding: 4px;
+    margin: 9px;
+    background-color: $white;
+    border: 1px solid $grey-lead;
+    border-radius: 5px;
+  }
+
+  &__image {
+  }
+  &__text {
+    &--wrapper {
+      margin-left: 10px;
+      display: flex;
+      flex-direction: column;
+      min-width: 222px;
+    }
+    &--fav-btn {
+      border: 0;
+      padding: 0;
+      -webkit-appearance: none;
+      align-self: flex-end;
+      background-color: white;
+    }
+
+    &--title {
+      margin: 0;
+    }
+    &--detail {
+      margin: 0;
+    }
+  }
+}

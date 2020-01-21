@@ -1,20 +1,19 @@
-
 // Core
-@import 'core/functions';
-@import 'core/variables';
+@import "core/functions";
+@import "core/variables";
 //@import 'core/mixins';
 
 // Vendor
-@import 'vendor/normalize';
-
+@import "vendor/normalize";
 
 // Pages
-@import 'pages/landing';
-@import 'pages/main-page';
+@import "pages/landing";
+@import "pages/main-page";
 
 // Layout
-@import 'layout/header';
-@import 'layout/search';
-@import 'layout/menu';
-@import 'layout/footer';
-@import 'layout/section';
+@import "layout/header";
+@import "layout/search";
+@import "layout/menu";
+@import "layout/footer";
+@import "layout/section";
+@import "layout/item";

@@ -1,21 +1,23 @@
-import React from 'react';
+import React from "react";
 
 const Item = props => {
-    const { title, author, imgage, year } = props.item;
-    return (
-        <div>
-            <div>
-                <img src={image} alt={title} />
-            </div>
-            <div>
-                <h3>{title}</h3>
-                <p>{author}, {year}.</p>
-            </div>
-            <button>Marcar favorito</button>
-
-        </div>
-
-    )
+  const { title, author, imageSmall, year } = props.item;
+  return (
+    <div className="item__wrapper">
+      <div>
+        <img src={imageSmall} alt={title} className="item__image" />
+      </div>
+      <div className="item__text--wrapper">
+        <button className="item__text--fav-btn">
+          <i class="far fa-star"></i>
+        </button>
+        <h3 className="item__text--title">{title}</h3>
+        <p className="item__text--detail">
+          {author}, {year}.
+        </p>
+      </div>
+    </div>
+  );
 };
 
 export default Item;
