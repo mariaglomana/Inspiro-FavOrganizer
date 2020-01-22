@@ -3,7 +3,7 @@ import Item from "./Item";
 
 const List = props => {
   return (
-    <ul>
+    <ul className="list__wrapper">
       {props.items.map(item => {
         return (
           <li key={item.id}>

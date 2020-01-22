@@ -2,7 +2,8 @@
   &__wrapper {
     display: flex;
     padding: 4px;
-    margin: 9px;
+    margin: 9px auto;
+    max-width: 253px;
     background-color: $white;
     border: 1px solid $grey-lead;
     border-radius: 5px;
@@ -15,7 +16,7 @@
       margin-left: 10px;
       display: flex;
       flex-direction: column;
-      min-width: 222px;
+      min-width: 185px;
     }
     &--fav-btn {
       border: 0;

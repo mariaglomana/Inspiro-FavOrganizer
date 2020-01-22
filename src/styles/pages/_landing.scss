@@ -1,23 +1,38 @@
 .landing__main {
-    &--wrapper {
-        height: 80vh;       
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+  &--wrapper {
+    height: 100vh;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  &--button {
+    font-size: 23px;
+    height: 40px;
+    width: 155px;
+    margin-bottom: 85px;
+    border: 3px solid black;
+    border-radius: 8px;
+    outline: none;
+    background-color: $black;
+    color: $white;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.15);
+      background-color: $white;
+      color: $black;
     }
-    
-    &--button {
-        margin: 20px;
-    }
+  }
 }
 
 .landing-logo {
-    &__wrapper {
-        margin: 20px;
-    }
-    &__img {
-        width: 60vw;
-    }
+  &__wrapper {
+    margin-top: 75px;
+  }
+  &__img {
+    width: 80vw;
+  }
 }
-    

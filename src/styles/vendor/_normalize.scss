@@ -23,7 +23,6 @@ html {
 body {
   margin: 0;
   box-sizing: content-box;
-
 }
 
 /**
@@ -176,7 +175,8 @@ textarea {
   */
 
 button,
-input { /* 1 */
+input {
+  /* 1 */
   overflow: visible;
 }
 
@@ -186,7 +186,8 @@ input { /* 1 */
   */
 
 button,
-select { /* 1 */
+select {
+  /* 1 */
   text-transform: none;
 }
 
@@ -342,28 +343,28 @@ template {
   display: none;
 }
 
-a{
+a {
   text-decoration: none;
   color: inherit;
 }
 
-*{
+* {
   box-sizing: border-box;
 }
 
-ul{
+ul {
   padding: 0;
   margin: 0;
   list-style: none;
 }
 
-li{
+li {
   list-style: none;
 }
-fieldset{
+fieldset {
   border: none;
   padding: 0;
-} 
+}
 
 // .App {
 //   height: 100vh;
