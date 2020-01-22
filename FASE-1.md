@@ -25,6 +25,7 @@ Voy a necesitar:
 
 ### 2. Prototipo
 
+![Landing Section](landing.png)
 ![Books Section](books.png)
 
 ### 3. Planificación

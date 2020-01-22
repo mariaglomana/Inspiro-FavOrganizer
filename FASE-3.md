@@ -4,22 +4,15 @@
 
 #### Descripción
 
+Login de usuarios (API de login de Google) y creación de una parte de backend mediante la cual se pueda guardar en una base de datos la info de los usuarios (datos personales del usuario e información acerca de sus favoritos)
 
 #### Requisitos técnicos
 
-Voy a necesitar:
-
-
 ### 2. Prototipo
-
 
 ### 3. Planificación
 
 Tareas de la fase 3:
 https://github.com/users/mariaglomana/projects/4
 
-### 4. Desarrolla
-
-### 5. Feedback y valoración
-
-
+### 4. Feedback y valoración
