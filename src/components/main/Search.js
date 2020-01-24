@@ -2,9 +2,9 @@ import React from "react";
 //import Loader from "./Loader";
 
 class Search extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
 
   render() {
     return (
@@ -26,7 +26,6 @@ class Search extends React.Component {
               // onChange={this.handleSearch}
             />
           </div>
-          <input type="submit" className="form__btn" value="Buscar" />
         </form>
       </div>
     );

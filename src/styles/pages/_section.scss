@@ -1,0 +1,40 @@
+.main-section {
+  &__wrapper {
+    padding: 2px 25px;
+    background-color: $grey-cloud;
+  }
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 20px 0;
+    &--btns {
+      &-item {
+        margin: 0.67em 5px;
+        border: 2px solid black;
+        color: black;
+        background-color: $orange;
+        height: 30px;
+        width: 45px;
+        border-radius: 3px;
+        margin: 10px;
+      }
+    }
+  }
+}
+
+.section {
+  &-main__wrapper {
+    background-color: $orange;
+  }
+  &-title {
+  }
+  &-container {
+  }
+}
+
+.blue-background {
+  height: 16px;
+  background-color: $blue;
+}

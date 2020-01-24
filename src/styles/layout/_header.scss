@@ -1,52 +1,69 @@
 .header {
+  &__wrapper {
+    height: 18vh;
+  }
+
+  &-bar {
     &__wrapper {
-        height: 18vh;
-          }
-    &-logo__wrapper {
-        height: 10vh;
-        border-bottom: 1px solid black;
-        display: flex;
-        align-items: center;
+      height: 10vh;
+      border-bottom: 1px solid black;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
-    &-logo {
-        height: 5vh;
+    &__logo {
+      height: 5vh;
+      margin: 0 25px;
+    }
+
+    &__search {
+      &--icon {
         margin: 0 25px;
+        border: 2px solid black;
+        color: black;
+        height: 38px;
+        width: 38px;
+        border-radius: 19px;
+        background-color: $orange;
+        padding: 0;
+        -webkit-appearance: none;
+        align-self: flex-end;
+      }
+    }
+  }
 
+  &-nav {
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    &__wrapper {
+      height: 8vh;
+      font-weight: 700;
     }
 
-    &-nav__wrapper {
-        height: 8vh;
-        font-weight: 700;
-        
+    &__item {
+      flex-grow: 1;
+      height: 100%;
+      display: flex;
     }
-    &-nav {
-        height: 100%;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-
-        &__item {
-            flex-grow: 1;
-            height: 100%;
-            display: flex;
-        }
-    }
+  }
 }
 
 .nav-link {
-    flex-grow: 1;
-    text-align: center;
-    vertical-align: middle; 
-    //No se cómo centrar verticalmente el texto.. esto no sirve. He puesto un parche con la sig. línea (padding)
-    padding-top: 10px;
+  flex-grow: 1;
+  text-align: center;
+  vertical-align: middle;
+  //No se cómo centrar verticalmente el texto.. esto no sirve. He puesto un parche con la sig. línea (padding)
+  padding-top: 10px;
 
-    &--active {
-        background-color: $orange;
-        color: black;
-        }
-    &--normal {
-        background-color: black;
-        color: white;
-        flex-grow: 1;
-    }
+  &--active {
+    background-color: $orange;
+    color: black;
+  }
+  &--normal {
+    background-color: black;
+    color: white;
+    flex-grow: 1;
+  }
 }
