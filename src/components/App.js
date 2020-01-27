@@ -7,11 +7,6 @@ import Main from "./main/Main";
 //import MenuAppBar from './main/MenuAppBar';
 
 class App extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   }
-  // }
-
   render() {
     return (
       <Router>

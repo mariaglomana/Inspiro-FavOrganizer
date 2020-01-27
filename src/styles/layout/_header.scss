@@ -57,6 +57,10 @@
   //No se cómo centrar verticalmente el texto.. esto no sirve. He puesto un parche con la sig. línea (padding)
   padding-top: 10px;
 
+  &-icon {
+    height: 10px;
+  }
+
   &--active {
     background-color: $orange;
     color: black;

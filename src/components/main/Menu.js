@@ -12,25 +12,25 @@ class Menu extends React.Component {
         <ul className="menu-list__container">
           <li className="menu-list__item">
             <Link to="/music">
-              <i class="fas fa-music"></i>
+              <i className="fas fa-music"></i>
               {/* Música */}
             </Link>
           </li>
           <li className="menu-list__item">
             <Link to="/books">
-              <i class="fas fa-book"></i>
+              <i className="fas fa-book"></i>
               Libros
             </Link>
           </li>
           <li className="menu-list__item">
             <Link to="/films">
-              <i class="fas fa-film"></i>
+              <i className="fas fa-film"></i>
               Películas
             </Link>
           </li>
           <li className="menu-list__item">
             <Link to="/notes">
-              <i class="far fa-sticky-note"></i>
+              <i className="far fa-sticky-note"></i>
               Notas
             </Link>
           </li>

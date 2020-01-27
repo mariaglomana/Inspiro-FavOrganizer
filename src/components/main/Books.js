@@ -26,10 +26,10 @@ class Books extends React.Component {
             <h1 className="main-section__header--title">Tus libros</h1>
             <div className="main-section__header--btns">
               <button className="main-section__header--btns-item">
-                <i class="far fa-star"></i>
+                <i className="far fa-star"></i>
               </button>
               <button className="main-section__header--btns-item">
-                <i class="fas fa-home"></i>{" "}
+                <i className="fas fa-home"></i>{" "}
               </button>
             </div>
           </div>

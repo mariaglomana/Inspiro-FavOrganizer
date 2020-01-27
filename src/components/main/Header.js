@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Link } from "react-router-dom";
 import logoInspiro from "../../images/logoInspiro.png";
 
-function renderLinkAndHightlightActive(route, text) {
+function renderLinkAndHightlightActive(route, text, linkClass) {
   return (
     <Route
       exact
@@ -15,7 +15,8 @@ function renderLinkAndHightlightActive(route, text) {
 
         return (
           <Link to={route} className={activeClass}>
-            {text}
+            <i className={linkClass}></i>
+            {/* {text} */}
           </Link>
         );
       }}
@@ -39,7 +40,7 @@ class Header extends React.Component {
           <Link to="/search">
             <div className="header-bar__search">
               <button className="header-bar__search--icon">
-                <i class="fas fa-search"></i>{" "}
+                <i className="fas fa-search"></i>{" "}
               </button>
             </div>
           </Link>
@@ -47,16 +48,32 @@ class Header extends React.Component {
         <nav className="header-nav__wrapper">
           <ul className="header-nav">
             <li className="header-nav__item">
-              {renderLinkAndHightlightActive("/music", "Música")}
+              {renderLinkAndHightlightActive(
+                "/music",
+                "Música",
+                "fas fa-music nav-link-icon"
+              )}
             </li>
             <li className="header-nav__item">
-              {renderLinkAndHightlightActive("/books", "Libros")}
+              {renderLinkAndHightlightActive(
+                "/books",
+                "Libros",
+                "fas fa-book nav-link-icon"
+              )}
             </li>
             <li className="header-nav__item">
-              {renderLinkAndHightlightActive("/films", "Películas")}
+              {renderLinkAndHightlightActive(
+                "/films",
+                "Películas",
+                "fas fa-film nav-link-icon"
+              )}
             </li>
             <li className="header-nav__item">
-              {renderLinkAndHightlightActive("/notes", "Notas")}
+              {renderLinkAndHightlightActive(
+                "/notes",
+                "Notas",
+                "far fa-sticky-note nav-link-icon"
+              )}
             </li>
           </ul>
         </nav>

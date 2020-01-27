@@ -9,7 +9,7 @@ const Item = props => {
       </div>
       <div className="item__text--wrapper">
         <button className="item__text--fav-btn">
-          <i class="far fa-star"></i>
+          <i className="far fa-star"></i>
         </button>
         <h3 className="item__text--title">{title}</h3>
         <p className="item__text--detail">

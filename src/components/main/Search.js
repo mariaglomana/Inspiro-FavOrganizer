@@ -16,7 +16,7 @@ class Search extends React.Component {
         >
           <label htmlFor="search" className="form__label"></label>
           <div className="search-inputText__wrapper">
-            <i class="fas fa-search"></i>
+            <i className="fas fa-search"></i>
             <input
               type="text"
               id="search"
