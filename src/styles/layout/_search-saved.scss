@@ -11,8 +11,13 @@
     align-items: center;
     justify-content: space-evenly;
   }
-  &-inputText__wrapper {
-    display: flex;
+  &-inputText {
+    &__wrapper {
+      display: flex;
+    }
+    &__input {
+      padding-left: 9px;
+    }
   }
 }
 .fa-search {
