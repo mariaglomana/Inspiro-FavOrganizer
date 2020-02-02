@@ -17,6 +17,10 @@ class Books extends React.Component {
     this.toggleFavourite = this.toggleFavourite.bind(this);
   }
 
+  // formatBooks(book) {
+  //   return ()
+  // }
+
   componentDidMount() {
     this.setState({ books: books.results });
   }

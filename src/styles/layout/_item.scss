@@ -32,5 +32,10 @@
     &--detail {
       margin: 0;
     }
+    &--link {
+      font-size: 11px;
+      margin-top: 4px;
+      color: $grey-lead;
+    }
   }
 }

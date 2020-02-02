@@ -1,7 +1,9 @@
 import React from "react";
 
 const Item = props => {
-  const { title, author, imageSmall, year, id } = props.item;
+  const { title, author, imageSmall, year, id, link } = props.item;
+  const goodreadsRoute = `https://www.goodreads.com/book/show/${link}`;
+
   function toggleFavourite() {
     props.toggleFavourite(id);
   }
@@ -22,6 +24,11 @@ const Item = props => {
         <p className="item__text--detail">
           {author}, {year}.
         </p>
+        <small className="item__text--link">
+          <a href={goodreadsRoute} target="_blank">
+            Ver detalle
+          </a>
+        </small>
       </div>
     </div>
   );

@@ -11,15 +11,15 @@ class Menu extends React.Component {
       <nav className="menu__wrapper">
         <ul className="menu-list__container">
           <li className="menu-list__item">
-            <Link to="/music">
-              <i className="fas fa-music"></i>
-              {/* Música */}
-            </Link>
-          </li>
-          <li className="menu-list__item">
             <Link to="/books">
               <i className="fas fa-book"></i>
               Libros
+            </Link>
+          </li>
+          <li className="menu-list__item">
+            <Link to="/music">
+              <i className="fas fa-music"></i>
+              {/* Música */}
             </Link>
           </li>
           <li className="menu-list__item">
