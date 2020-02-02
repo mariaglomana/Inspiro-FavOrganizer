@@ -3,11 +3,11 @@ import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import Home from "./Home";
-import Music from "./Music";
-import Books from "./Books";
-import Films from "./Films";
-import Notes from "./Notes";
-import SearchNew from "./SearchNew";
+import MusicSection from "./MusicSection";
+import BooksSection from "./BooksSection";
+import FilmsSection from "./FilmsSection";
+import NotesSection from "./NotesSection";
+import SearchSection from "./SearchSection";
 
 class Main extends React.Component {
   constructor(props) {
@@ -29,11 +29,11 @@ class Main extends React.Component {
 
           <Switch>
             <Route exact path="/home" component={Home} />
-            <Route path="/music" component={Music} />
-            <Route path="/books" component={Books} />
-            <Route path="/films" component={Films} />
-            <Route path="/notes" component={Notes} />
-            <Route path="/search" component={SearchNew} />
+            <Route path="/music" component={MusicSection} />
+            <Route path="/books" component={BooksSection} />
+            <Route path="/films" component={FilmsSection} />
+            <Route path="/notes" component={NotesSection} />
+            <Route path="/search" component={SearchSection} />
           </Switch>
 
           <Footer />

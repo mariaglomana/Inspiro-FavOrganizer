@@ -21,7 +21,7 @@ const SearchSaved = props => {
             className="search-inputText__input"
             ref={props.searchText}
             onChange={handleSearchText}
-            placeholder="Título a buscar"
+            placeholder="Título"
           />
         </div>
       </form>

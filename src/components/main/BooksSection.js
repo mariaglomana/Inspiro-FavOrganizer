@@ -3,7 +3,7 @@ import books from "../../services/books";
 import SearchSaved from "./SearchSaved";
 import List from "./List";
 
-class Books extends React.Component {
+class BooksSection extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,10 +16,6 @@ class Books extends React.Component {
     this.focusSearchText = this.focusSearchText.bind(this);
     this.toggleFavourite = this.toggleFavourite.bind(this);
   }
-
-  // formatBooks(book) {
-  //   return ()
-  // }
 
   componentDidMount() {
     this.setState({ books: books.results });
@@ -74,4 +70,4 @@ class Books extends React.Component {
   }
 }
 
-export default Books;
+export default BooksSection;

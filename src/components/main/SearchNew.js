@@ -1,20 +1,50 @@
 import React from "react";
 
 class SearchNew extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+
+    this.handleSelectChange = this.handleSelectChange.bind(this);
+  }
+
+  handleSelectChange(event) {
+    this.props.handleSelectChange(event.target.value);
+  }
+
   render() {
     return (
       <div className="search-new__wrapper">
         <form className="search-new__form-wrapper">
           <div className="search-new__select-wrapper">
-            <label htmlFor="search-new__select">Busco</label>
-            <select
-              id="search-new__select"
-              name="search-new__select"
-              className="search-new-form__select-options"
+            <label
+              htmlFor="search-new__select"
+              className="search-new__select-label"
             >
-              <option value="Libros">Libros</option>
-              <option value="Música">Música</option>
-              <option value="Películas">Películas</option>
+              Busco
+            </label>
+            <select
+              id="searchSubject"
+              name="searchSubject"
+              className="search-new__select-options"
+              onChange={this.handleSelectChange}
+            >
+              <option selected disabled value="0">
+                Busco
+              </option>
+
+              <option
+                value="books"
+                className={`${
+                  this.props.searchSubject === "books"
+                    ? "search-new__select-options--selected"
+                    : ""
+                }`}
+              >
+                Libros
+              </option>
+              <option value="music">Música</option>
+              <option value="films">Películas</option>
             </select>
           </div>
           <label htmlFor="search-new"></label>

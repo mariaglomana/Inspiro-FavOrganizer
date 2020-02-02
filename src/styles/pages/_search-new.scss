@@ -24,10 +24,17 @@
       align-items: center;
     }
 
+    &-label {
+      margin-bottom: 10px;
+    }
+
     &-options {
       text-align: center;
       margin-top: 20px;
       background-color: $orange;
+      &--selected {
+        background-color: blue;
+      }
     }
   }
 

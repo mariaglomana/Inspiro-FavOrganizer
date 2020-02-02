@@ -1,6 +1,6 @@
 import React from "react";
 
-class Music extends React.Component {
+class MusicSection extends React.Component {
   render() {
     return (
       <div>
@@ -10,4 +10,4 @@ class Music extends React.Component {
   }
 }
 
-export default Music;
+export default MusicSection;
