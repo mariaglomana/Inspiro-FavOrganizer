@@ -3,7 +3,7 @@ import "../styles/App.scss";
 import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 
 import Landing from "./landing/Landing";
-import Main from "./main/Main";
+import MainApp from "./main/MainApp";
 //import MenuAppBar from './main/MenuAppBar';
 
 class App extends React.Component {
@@ -13,7 +13,7 @@ class App extends React.Component {
         <div className="App">
           <Switch>
             <Route exact path="/" component={Landing} />
-            <Route path="/home" component={Main} />
+            <Route path="/home" component={MainApp} />
           </Switch>
         </div>
       </Router>

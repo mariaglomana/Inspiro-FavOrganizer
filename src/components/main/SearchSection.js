@@ -1,15 +1,52 @@
 import React from "react";
-import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 import SearchNew from "./SearchNew";
-import Results from "./Results";
+import ResultsList from "./ResultsList";
+import getDataFromApi from "../../services/api";
+import localStorage from "../../localStorage/index";
+
+// import books from "../../services/books";
 
 class SearchSection extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchSubject: "books"
+      searchText: "",
+      searchSubject: "books",
+      loading: false,
+      results: []
     };
+    this.searchText = React.createRef();
+    this.handleSearchText = this.handleSearchText.bind(this);
+    this.focusSearchText = this.focusSearchText.bind(this);
+    this.search = this.search.bind(this);
     this.handleSelectChange = this.handleSelectChange.bind(this);
+  }
+
+  focusSearchText() {
+    this.searchText.current.focus();
+  }
+
+  handleSearchText(value) {
+    this.setState({ searchText: value });
+  }
+
+  search() {
+    this.setState({
+      loading: true
+    });
+
+    getDataFromApi(this.state.searchText);
+
+    // getDataFromApi(this.state.searchText).then(data => {
+    //   this.setState({
+    //     results: data,
+    //     loading: false
+    //   });
+    // });
+  }
+
+  componentDidUpdate() {
+    localStorage.set("searchText", this.state.searchText);
   }
 
   handleSelectChange(value) {
@@ -18,21 +55,18 @@ class SearchSection extends React.Component {
 
   render() {
     return (
-      <Router>
-        <Switch>
-          <Route
-            path="/"
-            render={routerProps => (
-              <SearchNew
-                match={routerProps.match}
-                searchSubject={this.state.searchSubject}
-                handleSelectChange={this.handleSelectChange}
-              />
-            )}
-          />
-          <Route path="/results" component={Results} />
-        </Switch>
-      </Router>
+      <React.Fragment>
+        <SearchNew
+          searchSubject={this.state.searchSubject}
+          handleSelectChange={this.handleSelectChange}
+          handleSearchText={this.handleSearchText}
+          search={this.search}
+        />
+        <ResultsList
+          items={this.props.userFavs.books}
+          notFoundMessage="No hay resultados con ese título"
+        />
+      </React.Fragment>
     );
   }
 }

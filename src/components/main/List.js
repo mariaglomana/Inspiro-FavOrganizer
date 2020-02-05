@@ -17,7 +17,10 @@ const List = props => {
         {filteredItems.map(item => {
           return (
             <li key={item.id}>
-              <Item item={item} toggleFavourite={toggleFavourite} />
+              <Item
+                item={item}
+                // toggleFavourite={toggleFavourite}
+              />
             </li>
           );
         })}

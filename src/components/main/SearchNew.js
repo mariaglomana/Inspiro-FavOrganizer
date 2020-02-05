@@ -6,6 +6,19 @@ class SearchNew extends React.Component {
     this.state = {};
 
     this.handleSelectChange = this.handleSelectChange.bind(this);
+    this.handleSearchText = this.handleSearchText.bind(this);
+    this.handleClickSearchBtn = this.handleClickSearchBtn.bind(this);
+  }
+
+  handleSearchSubmit(event) {
+    event.preventDefault();
+  }
+  handleSearchText(event) {
+    this.props.handleSearchText(event.target.value);
+  }
+
+  handleClickSearchBtn() {
+    this.props.search();
   }
 
   handleSelectChange(event) {
@@ -15,13 +28,16 @@ class SearchNew extends React.Component {
   render() {
     return (
       <div className="search-new__wrapper">
-        <form className="search-new__form-wrapper">
+        <form
+          className="search-new__form-wrapper"
+          onSubmit={this.handleSearchSubmit}
+        >
           <div className="search-new__select-wrapper">
             <label
               htmlFor="search-new__select"
               className="search-new__select-label"
             >
-              Busco
+              {/* Busco */}
             </label>
             <select
               id="searchSubject"
@@ -29,7 +45,7 @@ class SearchNew extends React.Component {
               className="search-new__select-options"
               onChange={this.handleSelectChange}
             >
-              <option selected disabled value="0">
+              <option defaultValue disabled value="0">
                 Busco
               </option>
 
@@ -54,9 +70,18 @@ class SearchNew extends React.Component {
               id="search-new"
               name="search-new"
               className="search-new__input-text"
+              ref={this.props.searchText}
+              onChange={this.handleSearchText}
+              placeholder="Título"
             />
           </div>
-          <input type="submit" className="search-new__btn" value="Inspírame" />
+
+          <input
+            type="submit"
+            className="search-new__btn"
+            value="Inspírame"
+            onClick={this.handleClickSearchBtn}
+          />
         </form>
       </div>
     );

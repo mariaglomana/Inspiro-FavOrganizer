@@ -1,5 +1,4 @@
 import React from "react";
-import books from "../../services/books";
 import SearchSaved from "./SearchSaved";
 import List from "./List";
 
@@ -8,17 +7,12 @@ class BooksSection extends React.Component {
     super(props);
     this.state = {
       searchText: "",
-      books: [],
       favBooks: []
     };
     this.searchText = React.createRef();
     this.handleSearchText = this.handleSearchText.bind(this);
     this.focusSearchText = this.focusSearchText.bind(this);
-    this.toggleFavourite = this.toggleFavourite.bind(this);
-  }
-
-  componentDidMount() {
-    this.setState({ books: books.results });
+    // this.toggleFavourite = this.toggleFavourite.bind(this);
   }
 
   focusSearchText() {
@@ -29,18 +23,18 @@ class BooksSection extends React.Component {
     this.setState({ searchText: value });
   }
 
-  toggleFavourite(favId) {
-    const favBook = this.state.books.find(book => book.id === favId);
-    this.setState(function(prevState) {
-      const favIndex = this.state.favBooks.findIndex(book => book.id === favId);
-      if (favIndex === -1) {
-        prevState.favBooks.push(favBook);
-      } else {
-        prevState.favBooks.splice(favIndex, 1);
-      }
-      return { favBooks: prevState.favBooks };
-    });
-  }
+  // toggleFavourite(favId) {
+  //   const favBook = this.state.books.find(book => book.id === favId);
+  //   this.setState(function(prevState) {
+  //     const favIndex = this.state.favBooks.findIndex(book => book.id === favId);
+  //     if (favIndex === -1) {
+  //       prevState.favBooks.push(favBook);
+  //     } else {
+  //       prevState.favBooks.splice(favIndex, 1);
+  //     }
+  //     return { favBooks: prevState.favBooks };
+  //   });
+  // }
 
   render() {
     return (
@@ -59,10 +53,10 @@ class BooksSection extends React.Component {
             </div>
           </div>
           <List
-            items={this.state.books}
+            items={this.props.books}
             searchText={this.state.searchText}
             notFoundMessage="No hay resultados con ese título"
-            toggleFavourite={this.toggleFavourite}
+            // toggleFavourite={this.toggleFavourite}
           />
         </div>
       </div>
