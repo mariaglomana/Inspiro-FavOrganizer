@@ -1,6 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-class SearchNew extends React.Component {
+class SearchNewElem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -75,17 +76,18 @@ class SearchNew extends React.Component {
               placeholder="Título"
             />
           </div>
-
-          <input
-            type="submit"
-            className="search-new__btn"
-            value="Inspírame"
-            onClick={this.handleClickSearchBtn}
-          />
+          <Link to="/search/results">
+            <input
+              type="submit"
+              className="search-new__btn"
+              value="Inspírame"
+              onClick={this.handleClickSearchBtn}
+            />
+          </Link>
         </form>
       </div>
     );
   }
 }
 
-export default SearchNew;
+export default SearchNewElem;

@@ -1,6 +1,6 @@
 import React from "react";
 
-const SearchSaved = props => {
+const SearchSavedElem = props => {
   const handleSearchSubmit = event => {
     event.preventDefault();
   };
@@ -29,4 +29,4 @@ const SearchSaved = props => {
   );
 };
 
-export default SearchSaved;
+export default SearchSavedElem;

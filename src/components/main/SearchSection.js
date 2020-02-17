@@ -1,5 +1,6 @@
 import React from "react";
-import SearchNew from "./SearchNew";
+import { Route, Switch } from "react-router-dom";
+import SearchNewElem from "./SearchNewElem";
 import ResultsList from "./ResultsList";
 import getDataFromApi from "../../services/api";
 import localStorage from "../../localStorage/index";
@@ -35,14 +36,13 @@ class SearchSection extends React.Component {
       loading: true
     });
 
-    getDataFromApi(this.state.searchText);
-
-    // getDataFromApi(this.state.searchText).then(data => {
-    //   this.setState({
-    //     results: data,
-    //     loading: false
-    //   });
-    // });
+    getDataFromApi(this.state.searchText).then(data => {
+      console.log(data);
+      this.setState({
+        results: data,
+        loading: false
+      });
+    });
   }
 
   componentDidUpdate() {
@@ -55,18 +55,25 @@ class SearchSection extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
-        <SearchNew
-          searchSubject={this.state.searchSubject}
-          handleSelectChange={this.handleSelectChange}
-          handleSearchText={this.handleSearchText}
-          search={this.search}
-        />
-        <ResultsList
-          items={this.props.userFavs.books}
-          notFoundMessage="No hay resultados con ese título"
-        />
-      </React.Fragment>
+      <Switch>
+        <Route path="/search" exact>
+          <SearchNewElem
+            searchSubject={this.state.searchSubject}
+            handleSelectChange={this.handleSelectChange}
+            handleSearchText={this.handleSearchText}
+            search={this.search}
+          />
+        </Route>
+
+        <Route path="/search/results">
+          <ResultsList
+            items={this.state.results}
+            notFoundMessage="No hay resultados con ese título"
+            loading={this.state.loading}
+            saveBook={this.props.saveBook}
+          />
+        </Route>
+      </Switch>
     );
   }
 }

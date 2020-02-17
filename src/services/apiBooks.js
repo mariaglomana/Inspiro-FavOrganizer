@@ -1,3 +1,0 @@
-// formatBooks(book) {
-//   return ()
-// }

@@ -61,3 +61,15 @@
     }
   }
 }
+
+.results-notFound__wrapper {
+  height: 68vh;
+  font-size: 20px;
+  max-width: 50%;
+  margin: auto;
+  text-align: center;
+  line-height: 40px;
+  padding-top: 115px;
+  display: flex;
+  align-items: flex-start;
+}

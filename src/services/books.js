@@ -6,7 +6,7 @@ const books = {
       type: "book",
       id: "2422333",
       title: "Ender's Game",
-      author: "Orson Scott Card",
+      authors: "Orson Scott Card",
       image:
         "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1408303130l/375802._SY160_.jpg",
       imageSmall:
@@ -18,7 +18,7 @@ const books = {
       type: "book",
       id: "55447683",
       title: "End Game",
-      author: "David Baldacci",
+      authors: "David Baldacci",
       image:
         "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1495976812l/34368113._SX98_.jpg",
       imageSmall:
@@ -30,7 +30,7 @@ const books = {
       type: "book",
       id: "42437887",
       title: "The End Game",
-      author: "Kate McCarthy",
+      authors: "Kate McCarthy",
       image:
         "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1423089153l/22874150._SX98_.jpg",
       imageSmall:
@@ -42,7 +42,7 @@ const books = {
       type: "book",
       id: "26343184",
       title: "End Game ",
-      author: "John Gilstrap",
+      authors: "John Gilstrap",
       image:
         "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1389598387l/18596481._SY160_.jpg",
       imageSmall:
@@ -54,7 +54,7 @@ const books = {
       type: "book",
       id: "27214835",
       title: "La historia interminable del siglo XXI",
-      author: "Sonia Tomás Cañadas",
+      authors: "Sonia Tomás Cañadas",
       image:
         "https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png",
       imageSmall:
@@ -66,7 +66,7 @@ const books = {
       type: "book",
       id: "1122661",
       title: "La historia interminable",
-      author: "Michael Ende",
+      authors: "Michael Ende",
       image:
         "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1298569792l/72029._SY160_.jpg",
       imageSmall:

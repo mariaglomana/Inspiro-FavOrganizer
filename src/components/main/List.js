@@ -2,7 +2,7 @@ import React from "react";
 import Item from "./Item";
 
 const List = props => {
-  const { items, searchText, notFoundMessage, toggleFavourite } = props;
+  const { items, searchText, notFoundMessage } = props;
 
   const filteredItems = items.filter(
     item =>
@@ -17,10 +17,7 @@ const List = props => {
         {filteredItems.map(item => {
           return (
             <li key={item.id}>
-              <Item
-                item={item}
-                // toggleFavourite={toggleFavourite}
-              />
+              <Item item={item} />
             </li>
           );
         })}
@@ -28,7 +25,7 @@ const List = props => {
     );
   } else {
     return (
-      <div>
+      <div className="results-notFound__wrapper">
         <span>{notFoundMessage}</span>
       </div>
     );

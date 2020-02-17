@@ -41,4 +41,4 @@ function xmlToJson(xml) {
   return JSON.stringify(obj);
 }
 
-export default { xmlToJson };
+export default xmlToJson;

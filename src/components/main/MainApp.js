@@ -9,7 +9,6 @@ import FilmsSection from "./FilmsSection";
 import NotesSection from "./NotesSection";
 import SearchSection from "./SearchSection";
 
-import books from "../../services/books";
 // import localStorage from "../../localStorage/index";
 
 class MainApp extends React.Component {
@@ -22,21 +21,28 @@ class MainApp extends React.Component {
         films: []
       }
     };
+    this.saveBook = this.saveBook.bind(this);
+  }
+
+  saveBook(book) {
+    this.setState(prevState => {
+      const newFavorites = prevState.userFavs.books.push(book);
+      return {
+        ...prevState.userFavs,
+        books: newFavorites
+      };
+    });
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem("favourites", JSON.stringify(this.state.userFavs));
   }
 
   componentDidMount() {
-    this.setState(prevState => {
-      return {
-        userFavs: {
-          ...prevState.userFavs,
-          books: books.results
-        }
-      };
-    });
-    // const userFavs = JSON.parse(localStorage.getItem('userFavs'));
-    // if (userFavs !== null) {
-    //   this.setState(userFavs);
-    // }
+    const data = JSON.parse(localStorage.getItem("favourites"));
+    if (data !== null) {
+      this.setState({ userFavs: data });
+    }
   }
 
   render() {
@@ -65,6 +71,7 @@ class MainApp extends React.Component {
                 <SearchSection
                   match={routerProps.match}
                   userFavs={this.state.userFavs}
+                  saveBook={this.saveBook}
                 />
               )}
             />

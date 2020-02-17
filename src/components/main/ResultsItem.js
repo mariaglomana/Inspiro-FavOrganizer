@@ -1,33 +1,40 @@
 import React from "react";
 
 const ResultsItem = props => {
-  const { title, author, imageSmall, year, id, link } = props.item;
-  const goodreadsRoute = `https://www.goodreads.com/book/show/${link}`;
+  const { title, authors, imageSmall, year, id } = props.item;
+  // const date = year.slice(0, 4);
 
-  function toggleFavourite() {
-    props.toggleFavourite(id);
-  }
+  const formatAuthors = arr => {
+    const lastAuth = arr.pop();
+    return arr.lenght ? arr.join(", ") + " y " + lastAuth : lastAuth || "";
+  };
+  const strAuthors = formatAuthors(authors);
+
+  const handleClickSaveBook = () => {
+    props.saveBook(props.item);
+  };
+
   return (
     <div className="item__wrapper">
-      <div>
+      <div className="item__image--wrapper">
         <img src={imageSmall} alt={title} className="item__image" />
       </div>
       <div className="item__text--wrapper">
         <button
           className="item__text--fav-btn"
           id={id}
-          onClick={toggleFavourite}
+          onClick={handleClickSaveBook}
         >
-          <i className="fas fa-star"></i>
+          <i className="far fa-save"></i>
         </button>
         <h3 className="item__text--title">{title}</h3>
         <p className="item__text--detail">
-          {author}, {year}.
+          {strAuthors}, {year}.
         </p>
         <small className="item__text--link">
-          <a href={goodreadsRoute} target="_blank">
-            Ver detalle
-          </a>
+          {/* <a href="google.com" target="_blank"> */}
+          Ver detalle
+          {/* </a> */}
         </small>
       </div>
     </div>
