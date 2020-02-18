@@ -1,20 +1,23 @@
 import React from "react";
 
-const DetailBook = props => {
-  const { title, authors, imageSmall, year } = props.item;
-
+const DetailBook = ({ match }) => {
+  // const { title, authors, imageSmall, year } = props.item;
+  console.log(match);
   return (
-    <div className="item__wrapper">
-      <div>
-        <img src={imageSmall} alt={title} className="item__image" />
-      </div>
-      <div className="item__text--wrapper">
-        <h3 className="item__text--title">{title}</h3>
-        <p className="item__text--detail">
-          {authors}, {year}.
-        </p>
-      </div>
+    <div>
+      <p>book detail</p>
     </div>
+    // <div className="item__wrapper">
+    //   <div>
+    //     <img src={imageSmall} alt={title} className="item__image" />
+    //   </div>
+    //   <div className="item__text--wrapper">
+    //     <h3 className="item__text--title">{title}</h3>
+    //     <p className="item__text--detail">
+    //       {authors}, {year}.
+    //     </p>
+    //   </div>
+    // </div>
   );
 };
 
