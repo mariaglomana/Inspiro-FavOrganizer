@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import SearchNewElem from "./SearchNewElem";
 import ResultsList from "./ResultsList";
-import getDataFromApi from "../../services/api";
+import getBooksFromApi from "../../services/api";
 import localStorage from "../../localStorage/index";
 
 // import books from "../../services/books";
@@ -21,6 +21,7 @@ class SearchSection extends React.Component {
     this.focusSearchText = this.focusSearchText.bind(this);
     this.search = this.search.bind(this);
     this.handleSelectChange = this.handleSelectChange.bind(this);
+    this.updateResults = this.updateResults.bind(this);
   }
 
   focusSearchText() {
@@ -36,7 +37,7 @@ class SearchSection extends React.Component {
       loading: true
     });
 
-    getDataFromApi(this.state.searchText).then(data => {
+    getBooksFromApi(this.state.searchText).then(data => {
       console.log(data);
       this.setState({
         results: data,
@@ -51,6 +52,12 @@ class SearchSection extends React.Component {
 
   handleSelectChange(value) {
     this.setState({ searchSubject: value });
+  }
+
+  updateResults(index, item) {
+    const newResults = this.state.results;
+    newResults[index] = item;
+    this.setState({ results: newResults });
   }
 
   render() {
@@ -68,9 +75,11 @@ class SearchSection extends React.Component {
         <Route path="/search/results">
           <ResultsList
             items={this.state.results}
+            userFavs={this.props.userFavs}
             notFoundMessage="No hay resultados con ese título"
             loading={this.state.loading}
-            saveBook={this.props.saveBook}
+            updateFavBooks={this.props.updateFavBooks}
+            updateResults={this.updateResults}
           />
         </Route>
       </Switch>

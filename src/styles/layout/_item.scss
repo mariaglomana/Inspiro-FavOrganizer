@@ -4,7 +4,6 @@
     padding: 10px;
     margin: 9px auto;
     max-width: 253px;
-    background-color: $white;
     border: 1px solid $grey-lead;
     border-radius: 5px;
   }
@@ -33,6 +32,7 @@
 
     &--title {
       margin: 0;
+      color: $grey-coal;
     }
     &--detail {
       margin: 0;

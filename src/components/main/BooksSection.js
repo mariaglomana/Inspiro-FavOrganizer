@@ -6,8 +6,7 @@ class BooksSection extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchText: "",
-      favBooks: []
+      searchText: ""
     };
     this.searchText = React.createRef();
     this.handleSearchText = this.handleSearchText.bind(this);
@@ -37,6 +36,7 @@ class BooksSection extends React.Component {
   // }
 
   render() {
+    const { books, removeFavBook } = this.props;
     return (
       <div className="main-section__wrapper">
         <SearchSavedElem
@@ -53,9 +53,10 @@ class BooksSection extends React.Component {
             </div>
           </div>
           <List
-            items={this.props.books}
+            items={books}
             searchText={this.state.searchText}
             notFoundMessage="Aun no tienes libros guardados"
+            removeFavBook={removeFavBook}
           />
         </div>
       </div>

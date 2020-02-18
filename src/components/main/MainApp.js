@@ -21,15 +21,37 @@ class MainApp extends React.Component {
         films: []
       }
     };
-    this.saveBook = this.saveBook.bind(this);
+    this.updateFavBooks = this.updateFavBooks.bind(this);
+    this.removeFavBook = this.removeFavBook.bind(this);
   }
 
-  saveBook(book) {
+  updateFavBooks(book) {
+    // const selectedBook = { ...book, isSaved: true };
+    if (book.isSaved) {
+      this.addFavBook(book);
+    } else {
+      this.removeFavBook(book);
+    }
+  }
+
+  addFavBook(book) {
+    const newFavourites = this.state.userFavs.books.push(book);
+    this.setStateSection("books", newFavourites);
+  }
+
+  removeFavBook(book) {
+    const indexFavList = this.state.userFavs.books.findIndex(
+      elem => elem.id === book.id
+    );
+    const newFavourites = this.state.userFavs.books.splice(indexFavList, 1);
+    this.setStateSection("books", newFavourites);
+  }
+
+  setStateSection(section, newArr) {
     this.setState(prevState => {
-      const newFavorites = prevState.userFavs.books.push(book);
       return {
         ...prevState.userFavs,
-        books: newFavorites
+        section: newArr
       };
     });
   }
@@ -60,6 +82,7 @@ class MainApp extends React.Component {
                 <BooksSection
                   match={routerProps.match}
                   books={this.state.userFavs.books}
+                  removeFavBook={this.removeFavBook}
                 />
               )}
             />
@@ -71,7 +94,7 @@ class MainApp extends React.Component {
                 <SearchSection
                   match={routerProps.match}
                   userFavs={this.state.userFavs}
-                  saveBook={this.saveBook}
+                  updateFavBooks={this.updateFavBooks}
                 />
               )}
             />

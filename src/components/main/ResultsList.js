@@ -1,9 +1,17 @@
 import React from "react";
 import ResultsItem from "./ResultsItem";
 import "../../styles/layout/_loader.scss";
+// import { Link } from "react-router-dom";
 
 const ResultsList = props => {
-  const { items, notFoundMessage, loading, saveBook } = props;
+  const {
+    items,
+    userFavs,
+    notFoundMessage,
+    loading,
+    updateFavBooks,
+    updateResults
+  } = props;
   if (loading) {
     return (
       <div className="results-notFound__wrapper">
@@ -19,10 +27,25 @@ const ResultsList = props => {
             <h1 className="main-section__header--title">Resultados</h1>
           </div>
           <ul className="list__wrapper">
-            {items.map(item => {
+            {items.map(function(item, index) {
+              for (const favourite of userFavs.books) {
+                if (favourite.id === item.id) {
+                  item.isSaved = true;
+                } else {
+                  item.isSaved = false;
+                }
+              }
+
               return (
                 <li key={item.id}>
-                  <ResultsItem item={item} saveBook={saveBook} />
+                  {/* <Link to={`/book/${item.id}`} className=""> */}
+                  <ResultsItem
+                    item={item}
+                    index={index}
+                    updateFavBooks={updateFavBooks}
+                    updateResults={updateResults}
+                  />
+                  {/* </Link> */}
                 </li>
               );
             })}
@@ -31,7 +54,7 @@ const ResultsList = props => {
       );
     } else {
       return (
-        <div className="search-new--results-notFound__wrapper">
+        <div className="results-notFound__wrapper">
           <span>{notFoundMessage}</span>
         </div>
       );

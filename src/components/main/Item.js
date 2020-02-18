@@ -4,8 +4,8 @@ const Item = props => {
   const { title, authors, imageSmall, year, id } = props.item;
   // const goodreadsRoute = `https://www.goodreads.com/book/show/${link}`;
 
-  function toggleFavourite() {
-    props.toggleFavourite(id);
+  function handleClickRemove() {
+    props.removeFavBook(props.item);
   }
   return (
     <div className="item__wrapper">
@@ -16,7 +16,7 @@ const Item = props => {
         <button
           className="item__text--fav-btn"
           id={id}
-          onClick={toggleFavourite}
+          onClick={handleClickRemove}
         >
           <i className="fas fa-trash-alt"></i>
         </button>

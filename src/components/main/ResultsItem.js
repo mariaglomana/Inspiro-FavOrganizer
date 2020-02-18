@@ -1,7 +1,7 @@
 import React from "react";
 
 const ResultsItem = props => {
-  const { title, authors, imageSmall, year, id } = props.item;
+  const { title, authors, imageSmall, year, id, isSaved } = props.item;
   // const date = year.slice(0, 4);
 
   const formatAuthors = arr => {
@@ -10,12 +10,19 @@ const ResultsItem = props => {
   };
   const strAuthors = formatAuthors(authors);
 
-  const handleClickSaveBook = () => {
-    props.saveBook(props.item);
+  const handleClickIcon = () => {
+    // this.setState((prevState, props) => ({
+    //   backgroundColor: prevState.backgroundColor === 'blue' ? 'red' : 'blue'
+    props.item.isSaved = !isSaved;
+    props.updateResults(props.index, props.item);
+    props.updateFavBooks(props.item);
   };
 
+  const classIcon = isSaved ? "fas fa-trash-alt" : "far fa-save";
+  const classItem = isSaved ? "savedItem" : "newItem";
+
   return (
-    <div className="item__wrapper">
+    <div className={`item__wrapper ${classItem}`}>
       <div className="item__image--wrapper">
         <img src={imageSmall} alt={title} className="item__image" />
       </div>
@@ -23,9 +30,9 @@ const ResultsItem = props => {
         <button
           className="item__text--fav-btn"
           id={id}
-          onClick={handleClickSaveBook}
+          onClick={handleClickIcon}
         >
-          <i className="far fa-save"></i>
+          <i className={classIcon}></i>
         </button>
         <h3 className="item__text--title">{title}</h3>
         <p className="item__text--detail">

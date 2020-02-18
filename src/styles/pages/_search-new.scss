@@ -73,3 +73,18 @@
   display: flex;
   align-items: flex-start;
 }
+
+.fa-save,
+.fa-trash-alt {
+  color: $orange;
+}
+
+.savedItem {
+  background-color: $orange;
+  color: white;
+}
+
+.newItem {
+  background-color: white;
+  color: black;
+}

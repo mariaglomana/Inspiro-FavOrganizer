@@ -2,7 +2,7 @@ import React from "react";
 import Item from "./Item";
 
 const List = props => {
-  const { items, searchText, notFoundMessage } = props;
+  const { items, searchText, notFoundMessage, removeFavBook } = props;
 
   const filteredItems = items.filter(
     item =>
@@ -17,7 +17,7 @@ const List = props => {
         {filteredItems.map(item => {
           return (
             <li key={item.id}>
-              <Item item={item} />
+              <Item item={item} removeFavBook={removeFavBook} />
             </li>
           );
         })}

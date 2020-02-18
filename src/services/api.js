@@ -1,7 +1,6 @@
 import defBookCover from "../images/defBookCover.png";
 
 const BOOKS_ENDPOINT = "https://www.googleapis.com/books/v1/volumes?q=";
-
 const BOOKS_APIKEY = "&key=AIzaSyAVy2FQZgnT0i3ri5vC_T_1prZsc8HLxIc";
 
 // const deleteRepeated = results => {
@@ -16,7 +15,7 @@ const BOOKS_APIKEY = "&key=AIzaSyAVy2FQZgnT0i3ri5vC_T_1prZsc8HLxIc";
 //   return results;
 // };
 
-const getDataFromApi = searchText => {
+const getBooksFromApi = searchText => {
   return fetch(BOOKS_ENDPOINT + searchText + BOOKS_APIKEY, {
     method: "GET"
   })
@@ -48,4 +47,4 @@ const getDataFromApi = searchText => {
     );
 };
 
-export default getDataFromApi;
+export default getBooksFromApi;
