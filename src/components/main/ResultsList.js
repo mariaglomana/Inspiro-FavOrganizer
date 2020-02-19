@@ -28,13 +28,9 @@ const ResultsList = props => {
           </div>
           <ul className="list__wrapper">
             {items.map(function(item, index) {
-              for (const favourite of userFavs.books) {
-                if (favourite.id === item.id) {
-                  item.isSaved = true;
-                } else {
-                  item.isSaved = false;
-                }
-              }
+              item.isSaved =
+                userFavs.books.filter(favourite => favourite.id === item.id)
+                  .length > 0;
 
               return (
                 <li key={item.id}>
