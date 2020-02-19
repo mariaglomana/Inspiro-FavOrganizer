@@ -23,7 +23,7 @@ class Menu extends React.Component {
             </Link>
           </li>
           <li className="menu-list__item">
-            <Link to="/films">
+            <Link to="/movies">
               <i className="fas fa-film"></i>
               Películas
             </Link>

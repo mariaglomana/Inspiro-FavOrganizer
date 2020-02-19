@@ -63,7 +63,7 @@ class Header extends React.Component {
             </li>
             <li className="header-nav__item">
               {renderLinkAndHightlightActive(
-                "/films",
+                "/movies",
                 "Películas",
                 "fas fa-film nav-link-icon"
               )}

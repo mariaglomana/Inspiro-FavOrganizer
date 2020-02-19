@@ -1,6 +1,6 @@
 import React from "react";
 
-class FilmsSection extends React.Component {
+class MoviesSection extends React.Component {
   // constructor(props) {
   //     super(props);
   // };
@@ -13,4 +13,4 @@ class FilmsSection extends React.Component {
   }
 }
 
-export default FilmsSection;
+export default MoviesSection;

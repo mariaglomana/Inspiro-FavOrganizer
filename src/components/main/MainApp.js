@@ -5,7 +5,7 @@ import Footer from "./Footer";
 import Home from "./Home";
 import MusicSection from "./MusicSection";
 import BooksSection from "./BooksSection";
-import FilmsSection from "./FilmsSection";
+import MoviesSection from "./MoviesSection";
 import NotesSection from "./NotesSection";
 import SearchSection from "./SearchSection";
 
@@ -18,12 +18,15 @@ class MainApp extends React.Component {
       userFavs: {
         books: [],
         music: [],
-        films: []
+        movies: []
       }
     };
     this.updateFavBooks = this.updateFavBooks.bind(this);
     this.removeFavBook = this.removeFavBook.bind(this);
+    this.removeFavMovie = this.removeFavMovie.bind(this);
   }
+
+  //// BOOKS
 
   updateFavBooks(book) {
     // const selectedBook = { ...book, isSaved: true };
@@ -46,6 +49,17 @@ class MainApp extends React.Component {
     const newFavourites = this.state.userFavs.books.splice(indexFavList, 1);
     this.setStateSection("books", newFavourites);
   }
+
+  //// MOVIES
+  removeFavMovie(movie) {
+    const indexFavList = this.state.userFavs.movies.findIndex(
+      elem => elem.id === movie.id
+    );
+    const newFavourites = this.state.userFavs.movies.splice(indexFavList, 1);
+    this.setStateSection("movies", newFavourites);
+  }
+
+  //// GENERAL
 
   setStateSection(section, newArr) {
     this.setState(prevState => {
@@ -86,7 +100,17 @@ class MainApp extends React.Component {
                 />
               )}
             />
-            <Route path="/films" component={FilmsSection} />
+            <Route
+              path="/movies"
+              render={routerProps => (
+                <MoviesSection
+                  match={routerProps.match}
+                  movies={this.state.userFavs.movies}
+                  removeFavMovie={this.removeFavMovie}
+                />
+              )}
+            />
+
             <Route path="/notes" component={NotesSection} />
             <Route
               path="/search"

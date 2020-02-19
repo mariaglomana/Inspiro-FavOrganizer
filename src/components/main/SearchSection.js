@@ -2,10 +2,8 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import SearchNewElem from "./SearchNewElem";
 import ResultsList from "./ResultsList";
-import getBooksFromApi from "../../services/api";
+import getBooksFromApi from "../../services/books";
 import localStorage from "../../localStorage/index";
-
-// import books from "../../services/books";
 
 class SearchSection extends React.Component {
   constructor(props) {
