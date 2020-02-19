@@ -1,9 +1,10 @@
 .main-section {
   &__wrapper {
     background-color: $grey-cloud;
-    min-height: 68vh;
+    min-height: 72vh;
   }
   &__header {
+    height: 16vh;
     display: flex;
     justify-content: space-between;
     align-items: center;

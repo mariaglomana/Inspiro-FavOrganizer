@@ -2,8 +2,12 @@ import React from "react";
 import Item from "./Item";
 
 const List = props => {
-  const { items, searchText, notFoundMessage, removeFavBook } = props;
+  const { items, searchText, removeFavBook } = props;
 
+  const notFoundMessage =
+    items.length > 0
+      ? "Ningún resultado encontrado para ese título"
+      : "Aun no tienes libros guardados";
   const filteredItems = items.filter(
     item =>
       searchText === "" ||
