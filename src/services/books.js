@@ -29,16 +29,16 @@ const getBooksFromApi = searchText => {
             book.title = bookItem.volumeInfo.title;
             book.authors = bookItem.volumeInfo.authors;
             if (bookItem.volumeInfo.imageLinks === undefined) {
-              book.imageSmall = defBookCover;
+              book.image = defBookCover;
             } else {
-              book.imageSmall = bookItem.volumeInfo.imageLinks.smallThumbnail;
+              book.image = bookItem.volumeInfo.imageLinks.smallThumbnail;
             }
             book.year = bookItem.volumeInfo.publishedDate;
             if (book.year !== undefined) {
               book.year = book.year.slice(0, 4);
             }
             return book.authors === undefined ||
-              book.imageSmall === undefined ||
+              book.image === undefined ||
               book.year === undefined
               ? unique
               : [...unique, book];

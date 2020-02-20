@@ -1,16 +1,16 @@
 import React from "react";
 
 const Item = props => {
-  const { title, authors, imageSmall, year, id } = props.item;
+  const { title, authors, image, year, id } = props.item;
   // const goodreadsRoute = `https://www.goodreads.com/book/show/${link}`;
 
   function handleClickRemove() {
-    props.removeFavBook(props.item);
+    props.removeFav(props.item);
   }
   return (
     <div className="item__wrapper">
       <div>
-        <img src={imageSmall} alt={title} className="item__image" />
+        <img src={image} alt={title} className="item__image" />
       </div>
       <div className="item__text--wrapper">
         <button

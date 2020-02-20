@@ -3,9 +3,10 @@ import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import Home from "./Home";
+import FavsSection from "./FavsSection";
 import MusicSection from "./MusicSection";
 import BooksSection from "./BooksSection";
-import MoviesSection from "./MoviesSection";
+// import MoviesSection from "./MoviesSection";
 import NotesSection from "./NotesSection";
 import SearchSection from "./SearchSection";
 
@@ -21,45 +22,72 @@ class MainApp extends React.Component {
         movies: []
       }
     };
-    this.updateFavBooks = this.updateFavBooks.bind(this);
-    this.removeFavBook = this.removeFavBook.bind(this);
+    this.updateFavs = this.updateFavs.bind(this);
+    this.removeFav = this.removeFav.bind(this);
     this.removeFavMovie = this.removeFavMovie.bind(this);
   }
 
-  //// BOOKS
+  //// GENERAL
 
-  updateFavBooks(book) {
-    // const selectedBook = { ...book, isSaved: true };
-    if (book.isSaved) {
-      this.addFavBook(book);
+  updateFavs(item) {
+    // let favsArr = [];
+
+    // item.type === "book"
+    //   ? (favsArr = this.state.userFavs.books)
+    //   : item.type === "music"
+    //   ? (favsArr = this.state.userFavs.music)
+    //   : (favsArr = this.state.userFavs.movies);
+
+    if (item.isSaved) {
+      this.addFav(item);
     } else {
-      this.removeFavBook(book);
+      this.removeFav(item);
     }
   }
 
-  addFavBook(book) {
-    const newFavourites = this.state.userFavs.books.push(book);
-    this.setStateSection("books", newFavourites);
+  addFav(item) {
+    let newFavourites = [];
+    if (item.type === "book") {
+      newFavourites = this.state.userFavs.books.push(item);
+    } else if (item.type === "music") {
+      newFavourites = this.state.userFavs.music.push(item);
+    } else {
+      newFavourites = this.state.userFavs.movies.push(item);
+    }
+
+    // const newFavourites = favsArr.push(item);
+    this.setStateSection(item.type, newFavourites);
   }
 
-  removeFavBook(book) {
-    const indexFavList = this.state.userFavs.books.findIndex(
-      elem => elem.id === book.id
-    );
-    const newFavourites = this.state.userFavs.books.splice(indexFavList, 1);
-    this.setStateSection("books", newFavourites);
-  }
+  removeFav(item) {
+    let indexFavList = 0;
+    if (item.type === "book") {
+      indexFavList = this.state.userFavs.books.findIndex(
+        elem => elem.id === item.id
+      );
+    } else if (item.type === "music") {
+      indexFavList = this.state.userFavs.music.findIndex(
+        elem => elem.id === item.id
+      );
+    } else {
+      indexFavList = this.state.userFavs.movies.findIndex(
+        elem => elem.id === item.id
+      );
+    }
 
-  //// MOVIES
-  removeFavMovie(movie) {
-    const indexFavList = this.state.userFavs.movies.findIndex(
-      elem => elem.id === movie.id
-    );
-    const newFavourites = this.state.userFavs.movies.splice(indexFavList, 1);
-    this.setStateSection("movies", newFavourites);
-  }
+    // const indexFavList = favsArr.findIndex(elem => elem.id === item.id);
+    let newFavourites = [];
+    if (item.type === "book") {
+      newFavourites = this.state.userFavs.books.splice(indexFavList, 1);
+    } else if (item.type === "music") {
+      newFavourites = this.state.userFavs.music.splice(indexFavList, 1);
+    } else {
+      newFavourites = this.state.userFavs.movies.splice(indexFavList, 1);
+    }
 
-  //// GENERAL
+    // const newFavourites = favsArr.splice(indexFavList, 1);
+    this.setStateSection(item.type, newFavourites);
+  }
 
   setStateSection(section, newArr) {
     this.setState(prevState => {
@@ -69,6 +97,15 @@ class MainApp extends React.Component {
       };
     });
   }
+
+  //// MOVIES
+  // removeFavMovie(movie) {
+  //   const indexFavList = this.state.userFavs.movies.findIndex(
+  //     elem => elem.id === movie.id
+  //   );
+  //   const newFavourites = this.state.userFavs.movies.splice(indexFavList, 1);
+  //   this.setStateSection("movies", newFavourites);
+  // }
 
   componentDidUpdate() {
     localStorage.setItem("favourites", JSON.stringify(this.state.userFavs));
@@ -96,17 +133,23 @@ class MainApp extends React.Component {
                 <BooksSection
                   match={routerProps.match}
                   books={this.state.userFavs.books}
-                  removeFavBook={this.removeFavBook}
+                  removeFav={this.removeFav}
                 />
               )}
             />
             <Route
               path="/movies"
               render={routerProps => (
-                <MoviesSection
+                // <MoviesSection
+                //   match={routerProps.match}
+                //   movies={this.state.userFavs.movies}
+                //   removeFavMovie={this.removeFavMovie}
+                // />
+
+                <FavsSection
                   match={routerProps.match}
-                  movies={this.state.userFavs.movies}
-                  removeFavMovie={this.removeFavMovie}
+                  items={this.state.userFavs.movies}
+                  removeFav={this.removeFav}
                 />
               )}
             />
@@ -118,7 +161,7 @@ class MainApp extends React.Component {
                 <SearchSection
                   match={routerProps.match}
                   userFavs={this.state.userFavs}
-                  updateFavBooks={this.updateFavBooks}
+                  updateFavs={this.updateFavs}
                 />
               )}
             />

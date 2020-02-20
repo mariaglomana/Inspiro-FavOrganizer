@@ -5,7 +5,6 @@ const NotesSection = () => {
     height: "72vh",
     backgroundColor: "#dadee8",
     padding: "30px",
-    display: "inlineBlock",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",

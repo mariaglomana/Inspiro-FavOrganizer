@@ -9,7 +9,7 @@ const ResultsList = props => {
     userFavs,
     notFoundMessage,
     loading,
-    updateFavBooks,
+    updateFavs,
     updateResults
   } = props;
   if (loading) {
@@ -38,7 +38,7 @@ const ResultsList = props => {
                   <ResultsItem
                     item={item}
                     index={index}
-                    updateFavBooks={updateFavBooks}
+                    updateFavs={updateFavs}
                     updateResults={updateResults}
                   />
                   {/* </Link> */}
