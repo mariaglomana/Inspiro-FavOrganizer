@@ -24,7 +24,7 @@ class MainApp extends React.Component {
     };
     this.updateFavs = this.updateFavs.bind(this);
     this.removeFav = this.removeFav.bind(this);
-    this.removeFavMovie = this.removeFavMovie.bind(this);
+    // this.removeFavMovie = this.removeFavMovie.bind(this);
   }
 
   //// GENERAL
