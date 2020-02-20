@@ -38,16 +38,21 @@ class MainApp extends React.Component {
   }
 
   addFavBook(book) {
-    const newFavourites = this.state.userFavs.books.push(book);
-    this.setStateSection("books", newFavourites);
+    //this.state.userFavs.books.push(book);
+    //this.setStateSection("books", this.state.userFavs.books);
+
+    const updatedFavsTyped = this.state.userFavs[book.type].concat(book);
+    this.setStateSection(book.type, updatedFavsTyped);
   }
 
   removeFavBook(book) {
     const indexFavList = this.state.userFavs.books.findIndex(
       elem => elem.id === book.id
     );
-    const newFavourites = this.state.userFavs.books.splice(indexFavList, 1);
-    this.setStateSection("books", newFavourites);
+
+    this.state.userFavs.books.splice(indexFavList, 1);
+
+    this.setStateSection("books", this.state.userFavs.books);
   }
 
   //// MOVIES
@@ -64,8 +69,10 @@ class MainApp extends React.Component {
   setStateSection(section, newArr) {
     this.setState(prevState => {
       return {
-        ...prevState.userFavs,
-        section: newArr
+        userFavs: {
+          ...prevState.userFavs,
+          [section]: newArr
+        }
       };
     });
   }
