@@ -60,7 +60,7 @@ class SearchNewElem extends React.Component {
                 Libros
               </option>
               <option value="music">Música</option>
-              <option value="films">Películas</option>
+              <option value="movies">Películas</option>
             </select>
           </div>
           <label htmlFor="search-new"></label>

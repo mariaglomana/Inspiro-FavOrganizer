@@ -23,14 +23,14 @@ class MainApp extends React.Component {
         movies: []
       }
     };
-    this.updateFav = this.updateFav.bind(this);
+    this.updateFavs = this.updateFavs.bind(this);
     this.removeFav = this.removeFav.bind(this);
     this.removeFavMovie = this.removeFavMovie.bind(this);
   }
 
   //// BOOKS
 
-  updateFav(item) {
+  updateFavs(item) {
     if (item.isSaved) {
       this.addFav(item);
     } else {
@@ -132,7 +132,7 @@ class MainApp extends React.Component {
                 <SearchSection
                   match={routerProps.match}
                   userFavs={this.state.userFavs}
-                  updateFav={this.updateFav}
+                  updateFavs={this.updateFavs}
                 />
               )}
             />
