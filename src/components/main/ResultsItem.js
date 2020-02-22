@@ -15,7 +15,7 @@ const ResultsItem = props => {
     //   backgroundColor: prevState.backgroundColor === 'blue' ? 'red' : 'blue'
     props.item.isSaved = !isSaved;
     props.updateResults(props.index, props.item);
-    props.updateFavBooks(props.item);
+    props.updateFav(props.item);
   };
 
   const classIcon = isSaved ? "fas fa-trash-alt" : "far fa-save";

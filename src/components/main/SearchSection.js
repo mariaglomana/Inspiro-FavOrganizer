@@ -76,7 +76,7 @@ class SearchSection extends React.Component {
             userFavs={this.props.userFavs}
             notFoundMessage="No hay resultados con ese título"
             loading={this.state.loading}
-            updateFavBooks={this.props.updateFavBooks}
+            updateFav={this.props.updateFav}
             updateResults={this.updateResults}
           />
         </Route>

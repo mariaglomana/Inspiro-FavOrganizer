@@ -43,8 +43,9 @@ class SearchNewElem extends React.Component {
               name="searchSubject"
               className="search-new__select-options"
               onChange={this.handleSelectChange}
+              defaultValue="0"
             >
-              <option defaultValue disabled value="0">
+              <option disabled value="0">
                 Busco
               </option>
 

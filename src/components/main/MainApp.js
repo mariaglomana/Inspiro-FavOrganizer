@@ -3,6 +3,7 @@ import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import Home from "./Home";
+// import GenericSection from "./GenericSection";
 import MusicSection from "./MusicSection";
 import BooksSection from "./BooksSection";
 import MoviesSection from "./MoviesSection";
@@ -21,31 +22,31 @@ class MainApp extends React.Component {
         movies: []
       }
     };
-    this.updateFavBooks = this.updateFavBooks.bind(this);
-    this.removeFavBook = this.removeFavBook.bind(this);
+    this.updateFav = this.updateFav.bind(this);
+    this.removeFav = this.removeFav.bind(this);
     this.removeFavMovie = this.removeFavMovie.bind(this);
   }
 
   //// BOOKS
 
-  updateFavBooks(book) {
-    if (book.isSaved) {
-      this.addFavBook(book);
+  updateFav(item) {
+    if (item.isSaved) {
+      this.addFav(item);
     } else {
-      this.removeFavBook(book);
+      this.removeFav(item);
     }
   }
 
-  addFavBook(book) {
-    const updatedFavsTyped = this.state.userFavs[book.type].concat(book);
-    this.setStateSection(book.type, updatedFavsTyped);
+  addFav(item) {
+    const updatedFavsTyped = this.state.userFavs[item.type].concat(item);
+    this.setStateSection(item.type, updatedFavsTyped);
   }
 
-  removeFavBook(book) {
-    const updatedFavsTyped = this.state.userFavs.books.filter(
-      elem => elem.id !== book.id
+  removeFav(item) {
+    const updatedFavsTyped = this.state.userFavs[item.type].filter(
+      elem => elem.id !== item.id
     );
-    this.setStateSection(book.type, updatedFavsTyped);
+    this.setStateSection(item.type, updatedFavsTyped);
 
     // const indexFavList = this.state.userFavs.books.findIndex(
     //   elem => elem.id === book.id
@@ -102,7 +103,7 @@ class MainApp extends React.Component {
                 <BooksSection
                   match={routerProps.match}
                   books={this.state.userFavs.books}
-                  removeFavBook={this.removeFavBook}
+                  removeFav={this.removeFav}
                 />
               )}
             />
@@ -124,7 +125,7 @@ class MainApp extends React.Component {
                 <SearchSection
                   match={routerProps.match}
                   userFavs={this.state.userFavs}
-                  updateFavBooks={this.updateFavBooks}
+                  updateFav={this.updateFav}
                 />
               )}
             />

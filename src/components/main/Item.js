@@ -5,7 +5,7 @@ const Item = props => {
   // const goodreadsRoute = `https://www.goodreads.com/book/show/${link}`;
 
   function handleClickRemove() {
-    props.removeFavBook(props.item);
+    props.removeFav(props.item);
   }
   return (
     <div className="item__wrapper">
