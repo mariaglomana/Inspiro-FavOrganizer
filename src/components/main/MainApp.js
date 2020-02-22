@@ -9,6 +9,7 @@ import BooksSection from "./BooksSection";
 import MoviesSection from "./MoviesSection";
 import NotesSection from "./NotesSection";
 import SearchSection from "./SearchSection";
+import GenericSection from "./GenericSection";
 
 // import localStorage from "../../localStorage/index";
 
@@ -100,9 +101,15 @@ class MainApp extends React.Component {
             <Route
               path="/books"
               render={routerProps => (
-                <BooksSection
+                // <BooksSection
+                //   match={routerProps.match}
+                //   books={this.state.userFavs.books}
+                //   removeFav={this.removeFav}
+                // />
+
+                <GenericSection
                   match={routerProps.match}
-                  books={this.state.userFavs.books}
+                  items={this.state.userFavs.books}
                   removeFav={this.removeFav}
                 />
               )}

@@ -1,7 +1,7 @@
 import React from "react";
 
 const ResultsItem = props => {
-  const { title, authors, imageSmall, year, id, isSaved } = props.item;
+  const { title, authors, image, year, id, isSaved } = props.item;
   // const date = year.slice(0, 4);
 
   const formatAuthors = arr => {
@@ -24,7 +24,7 @@ const ResultsItem = props => {
   return (
     <div className={`item__wrapper ${classItem}`}>
       <div className="item__image--wrapper">
-        <img src={imageSmall} alt={title} className="item__image" />
+        <img src={image} alt={title} className="item__image" />
       </div>
       <div className="item__text--wrapper">
         <button

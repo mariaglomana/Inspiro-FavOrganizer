@@ -1,8 +1,7 @@
 import React from "react";
 
 const Item = props => {
-  const { title, authors, imageSmall, year, id } = props.item;
-  // const goodreadsRoute = `https://www.goodreads.com/book/show/${link}`;
+  const { title, authors, image, year, id } = props.item;
 
   function handleClickRemove() {
     props.removeFav(props.item);
@@ -10,7 +9,7 @@ const Item = props => {
   return (
     <div className="item__wrapper">
       <div>
-        <img src={imageSmall} alt={title} className="item__image" />
+        <img src={image} alt={title} className="item__image" />
       </div>
       <div className="item__text--wrapper">
         <button
