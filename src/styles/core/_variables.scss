@@ -1,6 +1,7 @@
 //VARIABLES: COLORS
 
-$orange: darkorange;
+// $orange: darkorange;
+$orange: #fa8231;
 $orange-border: rgb(168, 111, 3);
 $blue: cadetblue;
 
@@ -27,7 +28,7 @@ $grey-cement: #999;
 $grey-titanium: #aaa;
 $grey-cloud: #dadee8;
 $grey-mist: #f1f1f1;
-$white:#fff;
+$white: #fff;
 
 //States
 
@@ -39,10 +40,10 @@ $color-link: $brand-1;
 //VARIABLES: FONTS
 
 //Fonts: Families
-$kulim:  'Kulim Park', sans-serif;
-$roboto: 'Roboto', sans-serif;
-$font-family-1: 'Inria Serif', serif;
-$font-family-2: 'Nunito Sans', sans-serif;
+$kulim: "Kulim Park", sans-serif;
+$roboto: "Roboto", sans-serif;
+$font-family-1: "Inria Serif", serif;
+$font-family-2: "Nunito Sans", sans-serif;
 
 //Fonts: Weights
 $font-regular: 400;
@@ -66,7 +67,6 @@ $h4: px-to-percent(18);
 $h5: px-to-percent(16);
 $h6: px-to-percent(14);
 
-
 //-----------------------------------
 //VARIABLES: FONT ICONS
 
@@ -82,7 +82,6 @@ $icon-size-lg: px-to-percent(16);
 $icon-size-xl: px-to-percent(18);
 $icon-size-xxl: px-to-percent(24);
 
-
 //-----------------------------------
 //VARIABLES: MEDIA QUERIES
 
@@ -96,7 +95,6 @@ $media-lg-max: (($media-lg) - 1);
 $media-mid-max: (($media-mid) - 1);
 $media-sm-max: (($media-sm) - 1);
 
-
 //-----------------------------------
 //VARIABLES: GRID
 
@@ -107,7 +105,6 @@ $grid-column-count: 12;
 $grid-gutter: 7.5px;
 $grid-gutter-sm: ($grid-gutter / 2);
 $grid-gutter-lg: ($grid-gutter * 2);
-
 
 //-----------------------------------
 //VARIABLES:SPACING

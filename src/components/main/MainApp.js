@@ -24,20 +24,14 @@ class MainApp extends React.Component {
     };
     this.updateFavs = this.updateFavs.bind(this);
     this.removeFav = this.removeFav.bind(this);
-    // this.removeFavMovie = this.removeFavMovie.bind(this);
+
+    this.updateFavsMovies = this.updateFavsMovies.bind(this);
+    this.removeFavMovies = this.removeFavMovies.bind(this);
   }
 
   //// GENERAL
 
   updateFavs(item) {
-    // let favsArr = [];
-
-    // item.type === "book"
-    //   ? (favsArr = this.state.userFavs.books)
-    //   : item.type === "music"
-    //   ? (favsArr = this.state.userFavs.music)
-    //   : (favsArr = this.state.userFavs.movies);
-
     if (item.isSaved) {
       this.addFav(item);
     } else {
@@ -46,56 +40,46 @@ class MainApp extends React.Component {
   }
 
   addFav(item) {
-    let newFavourites = [];
-    if (item.type === "book") {
-      newFavourites = this.state.userFavs.books.push(item);
-    } else if (item.type === "music") {
-      newFavourites = this.state.userFavs.music.push(item);
-    } else {
-      newFavourites = this.state.userFavs.movies.push(item);
-    }
-
-    // const newFavourites = favsArr.push(item);
-    this.setStateSection(item.type, newFavourites);
+    const updatedFavsTyped = this.state.userFavs[item.type].concat(item);
+    this.setStateSection(item.type, updatedFavsTyped);
   }
 
   removeFav(item) {
-    let indexFavList = 0;
-    if (item.type === "book") {
-      indexFavList = this.state.userFavs.books.findIndex(
-        elem => elem.id === item.id
-      );
-    } else if (item.type === "music") {
-      indexFavList = this.state.userFavs.music.findIndex(
-        elem => elem.id === item.id
-      );
-    } else {
-      indexFavList = this.state.userFavs.movies.findIndex(
-        elem => elem.id === item.id
-      );
-    }
-
-    // const indexFavList = favsArr.findIndex(elem => elem.id === item.id);
-    let newFavourites = [];
-    if (item.type === "book") {
-      newFavourites = this.state.userFavs.books.splice(indexFavList, 1);
-    } else if (item.type === "music") {
-      newFavourites = this.state.userFavs.music.splice(indexFavList, 1);
-    } else {
-      newFavourites = this.state.userFavs.movies.splice(indexFavList, 1);
-    }
-
-    // const newFavourites = favsArr.splice(indexFavList, 1);
-    this.setStateSection(item.type, newFavourites);
+    const updatedFavsTyped = this.state.userFavs[item.type].filter(
+      elem => elem.id !== item.id
+    );
+    this.setStateSection(item.type, updatedFavsTyped);
   }
 
   setStateSection(section, newArr) {
     this.setState(prevState => {
       return {
         ...prevState.userFavs,
-        section: newArr
+        [section]: newArr
       };
     });
+  }
+
+  //MOVIES
+
+  updateFavsMovies(movie) {
+    if (movie.isSaved) {
+      this.addFavMovies(movie);
+    } else {
+      this.removeFavMovies(movie);
+    }
+  }
+
+  addFavMovies(movie) {
+    const updatedFavsTyped = this.state.userFavs.movies.concat(movie);
+    this.setStateSection(movie.type, updatedFavsTyped);
+  }
+
+  removeFavMovies(movie) {
+    const updatedFavsTyped = this.state.userFavs.movies.filter(
+      elem => elem.id !== movie.id
+    );
+    this.setStateSection(movie.type, updatedFavsTyped);
   }
 
   //// MOVIES
@@ -149,7 +133,7 @@ class MainApp extends React.Component {
                 <FavsSection
                   match={routerProps.match}
                   items={this.state.userFavs.movies}
-                  removeFav={this.removeFav}
+                  removeFav={this.removeFavMovies}
                 />
               )}
             />
@@ -161,7 +145,7 @@ class MainApp extends React.Component {
                 <SearchSection
                   match={routerProps.match}
                   userFavs={this.state.userFavs}
-                  updateFavs={this.updateFavs}
+                  updateFavs={this.updateFavsMovies}
                 />
               )}
             />

@@ -18,7 +18,7 @@ const NotesSection = () => {
   };
   return (
     <div style={divStyle}>
-      <h2>Sección para anotaciones en construcción</h2>
+      <h2>Sección de anotaciones en construcción</h2>
       <div>
         <i className="fas fa-pencil-ruler" style={iStyle}></i>
         <i className="fas fa-paint-roller" style={iStyle}></i>

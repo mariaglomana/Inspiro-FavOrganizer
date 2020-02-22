@@ -24,7 +24,7 @@ const getBooksFromApi = searchText => {
       result.items !== undefined
         ? result.items.reduce((unique, bookItem) => {
             let book = {};
-            book.type = "book";
+            book.type = "books";
             book.id = bookItem.id;
             book.title = bookItem.volumeInfo.title;
             book.authors = bookItem.volumeInfo.authors;

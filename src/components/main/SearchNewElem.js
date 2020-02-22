@@ -37,16 +37,15 @@ class SearchNewElem extends React.Component {
             <label
               htmlFor="search-new__select"
               className="search-new__select-label"
-            >
-              {/* Busco */}
-            </label>
+            />
             <select
               id="searchSubject"
               name="searchSubject"
               className="search-new__select-options"
               onChange={this.handleSelectChange}
+              defaultValue="0"
             >
-              <option defaultValue disabled selected="selected" value="0">
+              <option disabled value="0">
                 Busco
               </option>
 

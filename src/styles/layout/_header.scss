@@ -19,7 +19,7 @@
     &__search {
       &--icon {
         margin: 0 25px;
-        border: 2px solid black;
+        border: 1px solid black;
         color: black;
         height: 38px;
         width: 38px;
@@ -28,6 +28,10 @@
         padding: 0;
         -webkit-appearance: none;
         align-self: flex-end;
+        &:hover {
+          color: black;
+          background-color: $grey-titanium;
+        }
       }
     }
   }
