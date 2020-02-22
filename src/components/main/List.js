@@ -2,12 +2,12 @@ import React from "react";
 import Item from "./Item";
 
 const List = props => {
-  const { items, searchText, removeFavBook } = props;
+  const { items, searchText, removeFav } = props;
 
   const notFoundMessage =
     items.length > 0
       ? "Ningún resultado encontrado para ese título"
-      : "Aun no tienes libros guardados";
+      : `Aun no tienes elementos guardados`;
   const filteredItems = items.filter(
     item =>
       searchText === "" ||
@@ -21,7 +21,7 @@ const List = props => {
         {filteredItems.map(item => {
           return (
             <li key={item.id}>
-              <Item item={item} removeFavBook={removeFavBook} />
+              <Item item={item} removeFav={removeFav} />
             </li>
           );
         })}

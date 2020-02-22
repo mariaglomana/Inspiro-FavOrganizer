@@ -4,13 +4,14 @@ import SearchNewElem from "./SearchNewElem";
 import ResultsList from "./ResultsList";
 import getBooksFromApi from "../../services/books";
 import localStorage from "../../localStorage/index";
+import getMoviesFromApi from "../../services/movies";
 
 class SearchSection extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       searchText: "",
-      searchSubject: "books",
+      searchSubject: "0",
       loading: false,
       results: []
     };
@@ -31,17 +32,28 @@ class SearchSection extends React.Component {
   }
 
   search() {
+    const { searchSubject } = this.state;
     this.setState({
       loading: true
     });
-
-    getBooksFromApi(this.state.searchText).then(data => {
-      console.log(data);
-      this.setState({
-        results: data,
-        loading: false
+    if (searchSubject === "books") {
+      getBooksFromApi(this.state.searchText).then(data => {
+        console.log(data);
+        this.setState({
+          results: data,
+          loading: false
+        });
       });
-    });
+    }
+    if (searchSubject === "movies") {
+      getMoviesFromApi(this.state.searchText).then(data => {
+        console.log(data);
+        this.setState({
+          results: data,
+          loading: false
+        });
+      });
+    }
   }
 
   componentDidUpdate() {
@@ -76,7 +88,7 @@ class SearchSection extends React.Component {
             userFavs={this.props.userFavs}
             notFoundMessage="No hay resultados con ese título"
             loading={this.state.loading}
-            updateFavBooks={this.props.updateFavBooks}
+            updateFavs={this.props.updateFavs}
             updateResults={this.updateResults}
           />
         </Route>

@@ -11,7 +11,7 @@ const getMoviesFromApi = searchText => {
       result.Search !== undefined
         ? result.Search.reduce((unique, movieItem) => {
             let movie = {};
-            movie.type = "movie";
+            movie.type = "movies";
             movie.id = movieItem.imdbID;
             movie.title = movieItem.Title;
             if (movieItem.Poster === "N/A") {

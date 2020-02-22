@@ -3,11 +3,13 @@ import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import Home from "./Home";
+// import GenericSection from "./GenericSection";
 import MusicSection from "./MusicSection";
 import BooksSection from "./BooksSection";
 import MoviesSection from "./MoviesSection";
 import NotesSection from "./NotesSection";
 import SearchSection from "./SearchSection";
+import GenericSection from "./GenericSection";
 
 // import localStorage from "../../localStorage/index";
 
@@ -21,33 +23,31 @@ class MainApp extends React.Component {
         movies: []
       }
     };
-    this.updateFavBooks = this.updateFavBooks.bind(this);
-    this.removeFavBook = this.removeFavBook.bind(this);
+    this.updateFavs = this.updateFavs.bind(this);
+    this.removeFav = this.removeFav.bind(this);
     this.removeFavMovie = this.removeFavMovie.bind(this);
   }
 
   //// BOOKS
 
-  updateFavBooks(book) {
-    // const selectedBook = { ...book, isSaved: true };
-    if (book.isSaved) {
-      this.addFavBook(book);
+  updateFavs(item) {
+    if (item.isSaved) {
+      this.addFav(item);
     } else {
-      this.removeFavBook(book);
+      this.removeFav(item);
     }
   }
 
-  addFavBook(book) {
-    const newFavourites = this.state.userFavs.books.push(book);
-    this.setStateSection("books", newFavourites);
+  addFav(item) {
+    const updatedFavsTyped = this.state.userFavs[item.type].concat(item);
+    this.setStateSection(item.type, updatedFavsTyped);
   }
 
-  removeFavBook(book) {
-    const indexFavList = this.state.userFavs.books.findIndex(
-      elem => elem.id === book.id
+  removeFav(item) {
+    const updatedFavsTyped = this.state.userFavs[item.type].filter(
+      elem => elem.id !== item.id
     );
-    const newFavourites = this.state.userFavs.books.splice(indexFavList, 1);
-    this.setStateSection("books", newFavourites);
+    this.setStateSection(item.type, updatedFavsTyped);
   }
 
   //// MOVIES
@@ -64,8 +64,10 @@ class MainApp extends React.Component {
   setStateSection(section, newArr) {
     this.setState(prevState => {
       return {
-        ...prevState.userFavs,
-        section: newArr
+        userFavs: {
+          ...prevState.userFavs,
+          [section]: newArr
+        }
       };
     });
   }
@@ -93,20 +95,32 @@ class MainApp extends React.Component {
             <Route
               path="/books"
               render={routerProps => (
-                <BooksSection
+                // <BooksSection
+                //   match={routerProps.match}
+                //   books={this.state.userFavs.books}
+                //   removeFav={this.removeFav}
+                // />
+
+                <GenericSection
                   match={routerProps.match}
-                  books={this.state.userFavs.books}
-                  removeFavBook={this.removeFavBook}
+                  items={this.state.userFavs.books}
+                  removeFav={this.removeFav}
                 />
               )}
             />
             <Route
               path="/movies"
               render={routerProps => (
-                <MoviesSection
+                // <MoviesSection
+                //   match={routerProps.match}
+                //   movies={this.state.userFavs.movies}
+                //   removeFavMovie={this.removeFavMovie}
+                // />
+
+                <GenericSection
                   match={routerProps.match}
-                  movies={this.state.userFavs.movies}
-                  removeFavMovie={this.removeFavMovie}
+                  items={this.state.userFavs.movies}
+                  removeFav={this.removeFav}
                 />
               )}
             />
@@ -118,7 +132,7 @@ class MainApp extends React.Component {
                 <SearchSection
                   match={routerProps.match}
                   userFavs={this.state.userFavs}
-                  updateFavBooks={this.updateFavBooks}
+                  updateFavs={this.updateFavs}
                 />
               )}
             />

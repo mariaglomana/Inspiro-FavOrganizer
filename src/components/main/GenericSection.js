@@ -3,7 +3,7 @@ import SearchSavedElem from "./SearchSavedElem";
 import List from "./List";
 import CollapsibleSearch from "./CollapsibleSearch";
 
-class BooksSection extends React.Component {
+class GenericSection extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -30,12 +30,12 @@ class BooksSection extends React.Component {
   }
 
   render() {
-    const { books, removeFav } = this.props;
+    const { items, removeFav } = this.props;
     return (
       <div className="main-section__wrapper">
         <div>
           <CollapsibleSearch
-            items={books}
+            items={items}
             isOpen={this.state.searchIsOpen}
             toggleSearch={this.toggleSearch}
           >
@@ -45,7 +45,7 @@ class BooksSection extends React.Component {
             />
           </CollapsibleSearch>
           <List
-            items={books}
+            items={items}
             searchText={this.state.searchText}
             removeFav={removeFav}
           />
@@ -55,4 +55,4 @@ class BooksSection extends React.Component {
   }
 }
 
-export default BooksSection;
+export default GenericSection;

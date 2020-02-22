@@ -9,7 +9,7 @@ const ResultsList = props => {
     userFavs,
     notFoundMessage,
     loading,
-    updateFavBooks,
+    updateFavs,
     updateResults
   } = props;
   if (loading) {
@@ -29,8 +29,9 @@ const ResultsList = props => {
           <ul className="list__wrapper">
             {items.map(function(item, index) {
               item.isSaved =
-                userFavs.books.filter(favourite => favourite.id === item.id)
-                  .length > 0;
+                userFavs[item.type].filter(
+                  favourite => favourite.id === item.id
+                ).length > 0;
 
               return (
                 <li key={item.id}>
@@ -38,7 +39,7 @@ const ResultsList = props => {
                   <ResultsItem
                     item={item}
                     index={index}
-                    updateFavBooks={updateFavBooks}
+                    updateFavs={updateFavs}
                     updateResults={updateResults}
                   />
                   {/* </Link> */}
