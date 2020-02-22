@@ -1,10 +1,20 @@
 import React from "react";
 
 const Item = props => {
-  const { title, authors, image, year, id } = props.item;
+  const { item, removeFav } = props;
+  const { title, authors, image, year, id } = item;
+  let strAuthors = "";
+
+  if (authors !== undefined) {
+    const formatAuthors = arr => {
+      const lastAuth = arr.pop();
+      return arr.lenght ? arr.join(", ") + " y " + lastAuth : lastAuth || "";
+    };
+    strAuthors = formatAuthors(authors);
+  }
 
   function handleClickRemove() {
-    props.removeFav(props.item);
+    removeFav(props.item);
   }
   return (
     <div className="item__wrapper">
@@ -21,7 +31,8 @@ const Item = props => {
         </button>
         <h3 className="item__text--title">{title}</h3>
         <p className="item__text--detail">
-          {authors}, {year}.
+          {authors !== undefined ? `${strAuthors}, ` : ``}
+          {year}.
         </p>
         <small className="item__text--link">
           {/* <a href={goodreadsRoute} target="_blank"> */}

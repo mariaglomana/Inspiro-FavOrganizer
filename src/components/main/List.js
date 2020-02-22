@@ -7,7 +7,7 @@ const List = props => {
   const notFoundMessage =
     items.length > 0
       ? "Ningún resultado encontrado para ese título"
-      : "Aun no tienes libros guardados";
+      : `Aun no tienes elementos guardados`;
   const filteredItems = items.filter(
     item =>
       searchText === "" ||

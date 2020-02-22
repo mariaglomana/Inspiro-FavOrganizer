@@ -48,12 +48,6 @@ class MainApp extends React.Component {
       elem => elem.id !== item.id
     );
     this.setStateSection(item.type, updatedFavsTyped);
-
-    // const indexFavList = this.state.userFavs.books.findIndex(
-    //   elem => elem.id === book.id
-    // );
-    // this.state.userFavs.books.splice(indexFavList, 1);
-    // this.setStateSection("books", this.state.userFavs.books);
   }
 
   //// MOVIES
@@ -117,10 +111,16 @@ class MainApp extends React.Component {
             <Route
               path="/movies"
               render={routerProps => (
-                <MoviesSection
+                // <MoviesSection
+                //   match={routerProps.match}
+                //   movies={this.state.userFavs.movies}
+                //   removeFavMovie={this.removeFavMovie}
+                // />
+
+                <GenericSection
                   match={routerProps.match}
-                  movies={this.state.userFavs.movies}
-                  removeFavMovie={this.removeFavMovie}
+                  items={this.state.userFavs.movies}
+                  removeFav={this.removeFav}
                 />
               )}
             />
