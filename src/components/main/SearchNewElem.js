@@ -37,9 +37,7 @@ class SearchNewElem extends React.Component {
             <label
               htmlFor="search-new__select"
               className="search-new__select-label"
-            >
-              {/* Busco */}
-            </label>
+            />
             <select
               id="searchSubject"
               name="searchSubject"

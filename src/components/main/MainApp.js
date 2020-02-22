@@ -29,7 +29,6 @@ class MainApp extends React.Component {
   //// BOOKS
 
   updateFavBooks(book) {
-    // const selectedBook = { ...book, isSaved: true };
     if (book.isSaved) {
       this.addFavBook(book);
     } else {
@@ -38,21 +37,21 @@ class MainApp extends React.Component {
   }
 
   addFavBook(book) {
-    //this.state.userFavs.books.push(book);
-    //this.setStateSection("books", this.state.userFavs.books);
-
     const updatedFavsTyped = this.state.userFavs[book.type].concat(book);
     this.setStateSection(book.type, updatedFavsTyped);
   }
 
   removeFavBook(book) {
-    const indexFavList = this.state.userFavs.books.findIndex(
-      elem => elem.id === book.id
+    const updatedFavsTyped = this.state.userFavs.books.filter(
+      elem => elem.id !== book.id
     );
+    this.setStateSection(book.type, updatedFavsTyped);
 
-    this.state.userFavs.books.splice(indexFavList, 1);
-
-    this.setStateSection("books", this.state.userFavs.books);
+    // const indexFavList = this.state.userFavs.books.findIndex(
+    //   elem => elem.id === book.id
+    // );
+    // this.state.userFavs.books.splice(indexFavList, 1);
+    // this.setStateSection("books", this.state.userFavs.books);
   }
 
   //// MOVIES
