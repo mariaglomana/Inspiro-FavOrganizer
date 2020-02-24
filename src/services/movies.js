@@ -23,7 +23,10 @@ const getMoviesFromApi = searchText => {
             return [...unique, movie];
           }, [])
         : ""
-    );
+    )
+    .catch(function(error) {
+      console.error("Looks like there was a problem: \n", error);
+    });
 };
 
 export default getMoviesFromApi;

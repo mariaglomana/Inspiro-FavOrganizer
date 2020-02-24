@@ -3,10 +3,6 @@ import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import Home from "./Home";
-// import GenericSection from "./GenericSection";
-import MusicSection from "./MusicSection";
-import BooksSection from "./BooksSection";
-import MoviesSection from "./MoviesSection";
 import NotesSection from "./NotesSection";
 import SearchSection from "./SearchSection";
 import GenericSection from "./GenericSection";
@@ -20,15 +16,16 @@ class MainApp extends React.Component {
       userFavs: {
         books: [],
         music: [],
-        movies: []
-      }
+        movies: [],
+        art: []
+      },
+      lastSectionVisited: "books"
     };
     this.updateFavs = this.updateFavs.bind(this);
     this.removeFav = this.removeFav.bind(this);
-    this.removeFavMovie = this.removeFavMovie.bind(this);
   }
 
-  //// BOOKS
+  //// UPDATE FAVS HANDLING
 
   updateFavs(item) {
     if (item.isSaved) {
@@ -50,17 +47,6 @@ class MainApp extends React.Component {
     this.setStateSection(item.type, updatedFavsTyped);
   }
 
-  //// MOVIES
-  removeFavMovie(movie) {
-    const indexFavList = this.state.userFavs.movies.findIndex(
-      elem => elem.id === movie.id
-    );
-    const newFavourites = this.state.userFavs.movies.splice(indexFavList, 1);
-    this.setStateSection("movies", newFavourites);
-  }
-
-  //// GENERAL
-
   setStateSection(section, newArr) {
     this.setState(prevState => {
       return {
@@ -71,6 +57,8 @@ class MainApp extends React.Component {
       };
     });
   }
+
+  //// LOCAL STORAGE
 
   componentDidUpdate() {
     localStorage.setItem("favourites", JSON.stringify(this.state.userFavs));
@@ -91,17 +79,35 @@ class MainApp extends React.Component {
 
           <Switch>
             <Route exact path="/home" component={Home} />
-            <Route path="/music" component={MusicSection} />
+            {/* <Route
+              path="/music"
+              render={routerProps => (
+                <GenericSection
+                  title={"Tu música"}
+                  match={routerProps.match}
+                  items={this.state.userFavs.music}
+                  removeFav={this.removeFav}
+                />
+              )}
+            /> */}
+
+            <Route
+              path="/art"
+              render={routerProps => (
+                <GenericSection
+                  title={"Tus obras de arte"}
+                  match={routerProps.match}
+                  items={this.state.userFavs.art}
+                  removeFav={this.removeFav}
+                />
+              )}
+            />
+
             <Route
               path="/books"
               render={routerProps => (
-                // <BooksSection
-                //   match={routerProps.match}
-                //   books={this.state.userFavs.books}
-                //   removeFav={this.removeFav}
-                // />
-
                 <GenericSection
+                  title={"Tus libros"}
                   match={routerProps.match}
                   items={this.state.userFavs.books}
                   removeFav={this.removeFav}
@@ -111,13 +117,8 @@ class MainApp extends React.Component {
             <Route
               path="/movies"
               render={routerProps => (
-                // <MoviesSection
-                //   match={routerProps.match}
-                //   movies={this.state.userFavs.movies}
-                //   removeFavMovie={this.removeFavMovie}
-                // />
-
                 <GenericSection
+                  title={"Tus películas"}
                   match={routerProps.match}
                   items={this.state.userFavs.movies}
                   removeFav={this.removeFav}

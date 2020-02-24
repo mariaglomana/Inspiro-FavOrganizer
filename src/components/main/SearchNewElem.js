@@ -48,18 +48,18 @@ class SearchNewElem extends React.Component {
               <option disabled value="0">
                 Busco
               </option>
-
+              <option value="art">Arte</option>
               <option
                 value="books"
-                className={`${
-                  this.props.searchSubject === "books"
-                    ? "search-new__select-options--selected"
-                    : ""
-                }`}
+                // className={`${
+                //   this.props.searchSubject === "books"
+                //     ? "search-new__select-options--selected"
+                //     : ""
+                // }`}
               >
                 Libros
               </option>
-              <option value="music">Música</option>
+              {/* <option value="music">Música</option> */}
               <option value="movies">Películas</option>
             </select>
           </div>

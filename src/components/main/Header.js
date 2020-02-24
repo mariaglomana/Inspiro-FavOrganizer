@@ -47,10 +47,18 @@ class Header extends React.Component {
         </div>
         <nav className="header-nav__wrapper">
           <ul className="header-nav">
-            <li className="header-nav__item">
+            {/* <li className="header-nav__item">
               {renderLinkAndHightlightActive(
                 "/music",
                 "Música",
+                "fas fa-music nav-link-icon"
+              )}
+            </li> */}
+
+            <li className="header-nav__item">
+              {renderLinkAndHightlightActive(
+                "/art",
+                "Arte",
                 "fas fa-music nav-link-icon"
               )}
             </li>

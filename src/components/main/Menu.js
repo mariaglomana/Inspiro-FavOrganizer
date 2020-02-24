@@ -17,11 +17,17 @@ class Menu extends React.Component {
             </Link>
           </li>
           <li className="menu-list__item">
-            <Link to="/music">
-              <i className="fas fa-music"></i>
-              {/* Música */}
+            <Link to="/art">
+              <i className="fas fa-palette"></i>
+              Arte
             </Link>
           </li>
+          {/* <li className="menu-list__item">
+            <Link to="/music">
+              <i className="fas fa-music"></i>
+            </Link>
+          </li>
+ */}
           <li className="menu-list__item">
             <Link to="/movies">
               <i className="fas fa-film"></i>
