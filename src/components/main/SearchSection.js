@@ -5,6 +5,8 @@ import ResultsList from "./ResultsList";
 import getBooksFromApi from "../../services/books";
 import localStorage from "../../localStorage/index";
 import getMoviesFromApi from "../../services/movies";
+// import getMusicFromApi from "../../services/music";
+import getArtFromAPI from "../../services/art";
 
 class SearchSection extends React.Component {
   constructor(props) {
@@ -54,6 +56,25 @@ class SearchSection extends React.Component {
         });
       });
     }
+
+    if (searchSubject === "art") {
+      getArtFromAPI(this.state.searchText).then(data => {
+        console.log(data);
+        this.setState({
+          results: data,
+          loading: false
+        });
+      });
+    }
+    // if (searchSubject === "music") {
+    //   getMusicFromApi(this.state.searchText).then(data => {
+    //     console.log(data);
+    //     this.setState({
+    //       results: data,
+    //       loading: false
+    //     });
+    //   });
+    // }
   }
 
   componentDidUpdate() {

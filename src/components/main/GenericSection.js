@@ -30,11 +30,12 @@ class GenericSection extends React.Component {
   }
 
   render() {
-    const { items, removeFav } = this.props;
+    const { title, items, removeFav } = this.props;
     return (
       <div className="main-section__wrapper">
         <div>
           <CollapsibleSearch
+            title={title}
             items={items}
             isOpen={this.state.searchIsOpen}
             toggleSearch={this.toggleSearch}

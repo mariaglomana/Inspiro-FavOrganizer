@@ -1,7 +1,7 @@
 import React from "react";
 
 const CollapsibleSearch = props => {
-  const { items, isOpen, toggleSearch, children } = props;
+  const { title, items, isOpen, toggleSearch, children } = props;
   const iconStyling = isOpen ? "fas fa-home" : "fas fa-filter";
 
   function handleClick() {
@@ -10,7 +10,7 @@ const CollapsibleSearch = props => {
   return (
     <React.Fragment>
       <div className="main-section__header">
-        <h1 className="main-section__header--title">Tus libros</h1>
+        <h1 className="main-section__header--title">{title}</h1>
         {items.length > 0 ? (
           <div className="main-section__header--btns">
             <button

@@ -5,7 +5,7 @@ const ResultsItem = props => {
   const { title, authors, image, year, id, isSaved } = item;
   let strAuthors = "";
 
-  if (authors !== undefined) {
+  if (authors !== undefined && Array.isArray(authors)) {
     const formatAuthors = arr => {
       const lastAuth = arr.pop();
       return arr.lenght ? arr.join(", ") + " y " + lastAuth : lastAuth || "";
@@ -19,7 +19,7 @@ const ResultsItem = props => {
     updateFavs(item);
   };
 
-  const classIcon = isSaved ? "fas fa-trash-alt" : "far fa-save";
+  const classIcon = isSaved ? "fas fa-trash-alt" : "far fa-star";
   const classItem = isSaved ? "savedItem" : "newItem";
 
   return (
@@ -38,7 +38,7 @@ const ResultsItem = props => {
         <h3 className="item__text--title">{title}</h3>
         <p className="item__text--detail">
           {authors !== undefined ? `${strAuthors}, ` : ``}
-          {year}.
+          {year !== undefined ? `${year}, ` : ``}
         </p>
         <small className="item__text--link">
           {/* <a href="google.com" target="_blank"> */}
