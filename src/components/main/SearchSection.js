@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, /*useRef, */ useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import SearchNewElem from "./SearchNewElem";
 import ResultsList from "./ResultsList";
@@ -8,114 +8,94 @@ import getMoviesFromApi from "../../services/movies";
 // import getMusicFromApi from "../../services/music";
 import getArtFromAPI from "../../services/art";
 
-class SearchSection extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      searchText: "",
-      searchSubject: "0",
-      loading: false,
-      results: []
-    };
-    this.searchText = React.createRef();
-    this.handleSearchText = this.handleSearchText.bind(this);
-    this.focusSearchText = this.focusSearchText.bind(this);
-    this.search = this.search.bind(this);
-    this.handleSelectChange = this.handleSelectChange.bind(this);
-    this.updateResults = this.updateResults.bind(this);
-  }
+const SearchSection = props => {
+  const { books, movies, art, updateFavs } = props;
+  const [searchText, setSearchText] = useState("");
+  const [searchSubject, setSearchSubject] = useState("0");
+  const [isLoading, setIsLoading] = useState(false);
+  const [results, setResults] = useState([]);
+  const [favsSearchSubject, setFavsSearchSubject] = useState([]);
 
-  focusSearchText() {
-    this.searchText.current.focus();
-  }
+  // const searchTextRef = useRef(null);
 
-  handleSearchText(value) {
-    this.setState({ searchText: value });
-  }
+  // useEffect(() => {
+  //   searchTextRef.current.focus();
+  // }, [searchTextRef]);
 
-  search() {
-    const { searchSubject } = this.state;
-    this.setState({
-      loading: true
-    });
+  useEffect(() => {
+    localStorage.set("searchText", searchText);
+  }, [searchText]);
+
+  useEffect(() => {
     if (searchSubject === "books") {
-      getBooksFromApi(this.state.searchText).then(data => {
-        console.log(data);
-        this.setState({
-          results: data,
-          loading: false
-        });
+      setFavsSearchSubject(books);
+    }
+    if (searchSubject === "movies") {
+      setFavsSearchSubject(movies);
+    }
+    if (searchSubject === "art") {
+      setFavsSearchSubject(art);
+    }
+  }, [books, art, movies, searchSubject]);
+
+  // const suitableAPI = searchSub => {
+  //   const mapping = {
+  //     books: getBooksFromApi,
+  //     movies: getMoviesFromApi,
+  //     art: getArtFromAPI
+  //     // "music": getMusicFromApi
+  //   };
+  //   return mapping[searchSub];
+  // };
+
+  const search = () => {
+    setIsLoading(true);
+    // [suitableAPI(searchSubject)](searchText).then(data........)
+
+    if (searchSubject === "books") {
+      getBooksFromApi(searchText).then(data => {
+        setResults(data);
+        setIsLoading(false);
       });
     }
     if (searchSubject === "movies") {
-      getMoviesFromApi(this.state.searchText).then(data => {
-        console.log(data);
-        this.setState({
-          results: data,
-          loading: false
-        });
+      getMoviesFromApi(searchText).then(data => {
+        setResults(data);
+        setIsLoading(false);
       });
     }
-
     if (searchSubject === "art") {
-      getArtFromAPI(this.state.searchText).then(data => {
-        console.log(data);
-        this.setState({
-          results: data,
-          loading: false
-        });
+      getArtFromAPI(searchText).then(data => {
+        setResults(data);
+        setIsLoading(false);
       });
     }
-    // if (searchSubject === "music") {
-    //   getMusicFromApi(this.state.searchText).then(data => {
-    //     console.log(data);
-    //     this.setState({
-    //       results: data,
-    //       loading: false
-    //     });
-    //   });
-    // }
-  }
+  };
 
-  componentDidUpdate() {
-    localStorage.set("searchText", this.state.searchText);
-  }
+  return (
+    <Switch>
+      <Route path="/search" exact>
+        <SearchNewElem
+          searchSubject={searchSubject}
+          handleSelectChange={value => setSearchSubject(value)}
+          handleSearchText={value => setSearchText(value)}
+          search={search}
+          searchText={searchText}
+          // searchTextRef={searchTextRef}
+        />
+      </Route>
 
-  handleSelectChange(value) {
-    this.setState({ searchSubject: value });
-  }
-
-  updateResults(index, item) {
-    const newResults = this.state.results;
-    newResults[index] = item;
-    this.setState({ results: newResults });
-  }
-
-  render() {
-    return (
-      <Switch>
-        <Route path="/search" exact>
-          <SearchNewElem
-            searchSubject={this.state.searchSubject}
-            handleSelectChange={this.handleSelectChange}
-            handleSearchText={this.handleSearchText}
-            search={this.search}
-          />
-        </Route>
-
-        <Route path="/search/results">
-          <ResultsList
-            items={this.state.results}
-            userFavs={this.props.userFavs}
-            notFoundMessage="No hay resultados con ese título"
-            loading={this.state.loading}
-            updateFavs={this.props.updateFavs}
-            updateResults={this.updateResults}
-          />
-        </Route>
-      </Switch>
-    );
-  }
-}
+      <Route path="/search/results">
+        <ResultsList
+          items={results}
+          favsSearchSubject={favsSearchSubject}
+          notFoundMessage="No hay resultados con ese título"
+          loading={isLoading}
+          updateFavs={updateFavs}
+        />
+      </Route>
+    </Switch>
+  );
+};
 
 export default SearchSection;

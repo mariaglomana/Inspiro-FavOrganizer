@@ -1,7 +1,6 @@
 import React from "react";
 
-const Item = props => {
-  const { item, removeFav } = props;
+const Item = ({ item, removeFav }) => {
   const { title, authors, image, year, id } = item;
   let strAuthors = "";
 
@@ -14,7 +13,7 @@ const Item = props => {
   }
 
   function handleClickRemove() {
-    removeFav(props.item);
+    removeFav(item);
   }
   return (
     <div className="item__wrapper">

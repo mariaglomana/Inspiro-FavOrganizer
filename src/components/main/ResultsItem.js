@@ -1,23 +1,20 @@
 import React from "react";
 
 const ResultsItem = props => {
-  const { item, index, updateFavs, updateResults } = props;
-  const { title, authors, image, year, id, isSaved } = item;
+  const { item, isSaved, updateFavs } = props;
+  const { title, authors, image, year, id } = item;
   let strAuthors = "";
 
   if (authors !== undefined && Array.isArray(authors)) {
     const formatAuthors = arr => {
-      const lastAuth = arr.pop();
-      return arr.lenght ? arr.join(", ") + " y " + lastAuth : lastAuth || "";
+      const authorsArr = [...arr];
+      const lastAuth = authorsArr.pop();
+      return authorsArr.lenght
+        ? authorsArr.join(", ") + " y " + lastAuth
+        : lastAuth || "";
     };
     strAuthors = formatAuthors(authors);
   }
-
-  const handleClickIcon = () => {
-    item.isSaved = !isSaved;
-    updateResults(index, item);
-    updateFavs(item);
-  };
 
   const classIcon = isSaved ? "fas fa-trash-alt" : "far fa-star";
   const classItem = isSaved ? "savedItem" : "newItem";
@@ -31,7 +28,7 @@ const ResultsItem = props => {
         <button
           className="item__text--fav-btn"
           id={id}
-          onClick={handleClickIcon}
+          onClick={() => updateFavs(item, !isSaved)}
         >
           <i className={classIcon}></i>
         </button>

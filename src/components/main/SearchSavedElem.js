@@ -1,16 +1,12 @@
 import React from "react";
 
-const SearchSavedElem = props => {
-  const handleSearchSubmit = event => {
-    event.preventDefault();
-  };
-  const handleSearchText = event => {
-    props.handleSearchText(event.target.value);
-  };
-
+const SearchSavedElem = ({
+  handleSearchText,
+  searchText /*searchTextRef*/
+}) => {
   return (
     <div className="search__wrapper">
-      <form className="search-form__wrapper" onSubmit={handleSearchSubmit}>
+      <form className="search-form__wrapper" onSubmit={e => e.preventDefault()}>
         <label htmlFor="search" className="form__label"></label>
         <div className="search-inputText__wrapper">
           <i className="fas fa-search"></i>
@@ -19,8 +15,9 @@ const SearchSavedElem = props => {
             id="search"
             name="search"
             className="search-inputText__input"
-            ref={props.searchText}
-            onChange={handleSearchText}
+            value={searchText}
+            // ref={searchTextRef}
+            onChange={e => handleSearchText(e.target.value)}
             placeholder="Título"
           />
         </div>
