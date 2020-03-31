@@ -1,5 +1,8 @@
-import React from "react";
+import React, {
+  useState /*, useEffect, useContext, useReducer */
+} from "react";
 import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
+// import { ConfigContext } from "../App";
 import Header from "./Header";
 import Footer from "./Footer";
 import Home from "./Home";
@@ -9,141 +12,143 @@ import GenericSection from "./GenericSection";
 
 // import localStorage from "../../localStorage/index";
 
-class MainApp extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      userFavs: {
-        books: [],
-        music: [],
-        movies: [],
-        art: []
-      },
-      lastSectionVisited: "books"
-    };
-    this.updateFavs = this.updateFavs.bind(this);
-    this.removeFav = this.removeFav.bind(this);
-  }
+const MainApp = () => {
+  const [books, setBooks] = useState([]);
+  const [movies, setMovies] = useState([]);
+  const [art, setArt] = useState([]);
 
-  //// UPDATE FAVS HANDLING
+  //context will be used for displaying/ not displaying login section
+  // const context = useContext(ConfigContext);
 
-  updateFavs(item) {
-    if (item.isSaved) {
-      this.addFav(item);
+  // const [lastSectionSel, setLastSectionSel] = useState("home");
+
+  const updateFavs = (item, isSaved) => {
+    if (isSaved) {
+      item.type === "books"
+        ? addBook(item)
+        : item.type === "movies"
+        ? addMovie(item)
+        : addArt(item);
     } else {
-      this.removeFav(item);
+      item.type === "books"
+        ? removeBook(item)
+        : item.type === "movies"
+        ? removeMovie(item)
+        : removeArt(item);
     }
-  }
+  };
 
-  addFav(item) {
-    const updatedFavsTyped = this.state.userFavs[item.type].concat(item);
-    this.setStateSection(item.type, updatedFavsTyped);
-  }
+  const addBook = item => {
+    const newBooks = books.concat(item);
+    setBooks(newBooks);
+  };
+  const addArt = item => {
+    const newArt = art.concat(item);
+    setArt(newArt);
+  };
 
-  removeFav(item) {
-    const updatedFavsTyped = this.state.userFavs[item.type].filter(
-      elem => elem.id !== item.id
-    );
-    this.setStateSection(item.type, updatedFavsTyped);
-  }
+  const addMovie = item => {
+    const newMovie = movies.concat(item);
+    setMovies(newMovie);
+  };
 
-  setStateSection(section, newArr) {
-    this.setState(prevState => {
-      return {
-        userFavs: {
-          ...prevState.userFavs,
-          [section]: newArr
-        }
-      };
-    });
-  }
+  const removeBook = item => {
+    const newBooks = books.filter(elem => elem.id !== item.id);
+    setBooks(newBooks);
+  };
+  const removeArt = item => {
+    const newArt = art.filter(elem => elem.id !== item.id);
+    setArt(newArt);
+  };
 
+  const removeMovie = item => {
+    const newMovies = movies.filter(elem => elem.id !== item.id);
+    setMovies(newMovies);
+  };
+
+  // useEffect(() => {
+  //   const data = JSON.parse(localStorage.getItem("favourites"));
+  //   if (data !== null) {
+  //     setUserFavs(data);
+  //   }
+  //   // return () => console.log("dismounting");
+  // }, [userFavs]);
   //// LOCAL STORAGE
 
-  componentDidUpdate() {
-    localStorage.setItem("favourites", JSON.stringify(this.state.userFavs));
-  }
+  // componentDidUpdate() {
+  //   localStorage.setItem("favourites", JSON.stringify(this.state.userFavs));
+  // }
 
-  componentDidMount() {
-    const data = JSON.parse(localStorage.getItem("favourites"));
-    if (data !== null) {
-      this.setState({ userFavs: data });
-    }
-  }
+  // componentDidMount() {
+  //   const data = JSON.parse(localStorage.getItem("favourites"));
+  //   if (data !== null) {
+  //     this.setState({ userFavs: data });
+  //   }
+  // }
 
-  render() {
-    return (
-      <React.Fragment>
-        <Router>
-          <Header />
+  return (
+    <React.Fragment>
+      <Router>
+        <Header />
 
-          <Switch>
-            <Route exact path="/home" component={Home} />
-            {/* <Route
-              path="/music"
-              render={routerProps => (
-                <GenericSection
-                  title={"Tu música"}
-                  match={routerProps.match}
-                  items={this.state.userFavs.music}
-                  removeFav={this.removeFav}
-                />
-              )}
-            /> */}
+        <Switch>
+          <Route exact path="/home" component={Home} />
 
-            <Route
-              path="/art"
-              render={routerProps => (
-                <GenericSection
-                  title={"Tus obras de arte"}
-                  match={routerProps.match}
-                  items={this.state.userFavs.art}
-                  removeFav={this.removeFav}
-                />
-              )}
-            />
+          <Route
+            path="/art"
+            render={routerProps => (
+              <GenericSection
+                title={"Tus obras de arte"}
+                match={routerProps.match}
+                items={art}
+                removeFav={removeArt}
+              />
+            )}
+          />
 
-            <Route
-              path="/books"
-              render={routerProps => (
-                <GenericSection
-                  title={"Tus libros"}
-                  match={routerProps.match}
-                  items={this.state.userFavs.books}
-                  removeFav={this.removeFav}
-                />
-              )}
-            />
-            <Route
-              path="/movies"
-              render={routerProps => (
-                <GenericSection
-                  title={"Tus películas"}
-                  match={routerProps.match}
-                  items={this.state.userFavs.movies}
-                  removeFav={this.removeFav}
-                />
-              )}
-            />
+          <Route
+            path="/books"
+            render={routerProps => (
+              <GenericSection
+                title={"Tus libros"}
+                match={routerProps.match}
+                items={books}
+                removeFav={removeBook}
+              />
+            )}
+          />
+          <Route
+            path="/movies"
+            render={routerProps => (
+              <GenericSection
+                title={"Tus películas"}
+                match={routerProps.match}
+                items={movies}
+                removeFav={removeMovie}
+              />
+            )}
+          />
 
-            <Route path="/notes" component={NotesSection} />
-            <Route
-              path="/search"
-              render={routerProps => (
-                <SearchSection
-                  match={routerProps.match}
-                  userFavs={this.state.userFavs}
-                  updateFavs={this.updateFavs}
-                />
-              )}
-            />
-          </Switch>
+          <Route path="/notes" component={NotesSection} />
 
-          <Footer />
-        </Router>
-      </React.Fragment>
-    );
-  }
-}
+          <Route
+            path="/search"
+            render={routerProps => (
+              <SearchSection
+                match={routerProps.match}
+                books={books}
+                movies={movies}
+                art={art}
+                updateFavs={updateFavs}
+              />
+            )}
+          />
+        </Switch>
+
+        <Footer />
+      </Router>
+    </React.Fragment>
+  );
+};
 
 export default MainApp;

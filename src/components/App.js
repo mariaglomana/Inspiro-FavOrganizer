@@ -5,9 +5,15 @@ import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 import Landing from "./landing/Landing";
 import MainApp from "./main/MainApp";
 
-class App extends React.Component {
-  render() {
-    return (
+export const ConfigContext = React.createContext();
+
+const configValue = {
+  showLogIn: false
+};
+
+const App = () => {
+  return (
+    <ConfigContext.Provider value={configValue}>
       <Router>
         <div className="App">
           <Switch>
@@ -16,8 +22,8 @@ class App extends React.Component {
           </Switch>
         </div>
       </Router>
-    );
-  }
-}
+    </ConfigContext.Provider>
+  );
+};
 
 export default App;

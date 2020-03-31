@@ -24,30 +24,29 @@ function renderLinkAndHightlightActive(route, text, linkClass) {
   );
 }
 
-class Header extends React.Component {
-  render() {
-    return (
-      <header className="header__wrapper ">
-        <div className="header-bar__wrapper">
-          <Link to="/home">
-            <img
-              className="header-bar__logo"
-              src={logoInspiro}
-              style={{ height: "6vh" }}
-              alt="Logo Inspiro"
-            />
-          </Link>
-          <Link to="/search">
-            <div className="header-bar__search">
-              <button className="header-bar__search--icon">
-                <i className="fas fa-search"></i>{" "}
-              </button>
-            </div>
-          </Link>
-        </div>
-        <nav className="header-nav__wrapper">
-          <ul className="header-nav">
-            {/* <li className="header-nav__item">
+const Header = () => {
+  return (
+    <header className="header__wrapper ">
+      <div className="header-bar__wrapper">
+        <Link to="/home">
+          <img
+            className="header-bar__logo"
+            src={logoInspiro}
+            style={{ height: "6vh" }}
+            alt="Logo Inspiro"
+          />
+        </Link>
+        <Link to="/search">
+          <div className="header-bar__search">
+            <button className="header-bar__search--icon">
+              <i className="fas fa-search"></i>{" "}
+            </button>
+          </div>
+        </Link>
+      </div>
+      <nav className="header-nav__wrapper">
+        <ul className="header-nav">
+          {/* <li className="header-nav__item">
               {renderLinkAndHightlightActive(
                 "/music",
                 "Música",
@@ -55,39 +54,38 @@ class Header extends React.Component {
               )}
             </li> */}
 
-            <li className="header-nav__item">
-              {renderLinkAndHightlightActive(
-                "/art",
-                "Arte",
-                "fas fa-music nav-link-icon"
-              )}
-            </li>
-            <li className="header-nav__item">
-              {renderLinkAndHightlightActive(
-                "/books",
-                "Libros",
-                "fas fa-book nav-link-icon"
-              )}
-            </li>
-            <li className="header-nav__item">
-              {renderLinkAndHightlightActive(
-                "/movies",
-                "Películas",
-                "fas fa-film nav-link-icon"
-              )}
-            </li>
-            <li className="header-nav__item">
-              {renderLinkAndHightlightActive(
-                "/notes",
-                "Notas",
-                "far fa-sticky-note nav-link-icon"
-              )}
-            </li>
-          </ul>
-        </nav>
-      </header>
-    );
-  }
-}
+          <li className="header-nav__item">
+            {renderLinkAndHightlightActive(
+              "/art",
+              "Arte",
+              "fas fa-music nav-link-icon"
+            )}
+          </li>
+          <li className="header-nav__item">
+            {renderLinkAndHightlightActive(
+              "/books",
+              "Libros",
+              "fas fa-book nav-link-icon"
+            )}
+          </li>
+          <li className="header-nav__item">
+            {renderLinkAndHightlightActive(
+              "/movies",
+              "Películas",
+              "fas fa-film nav-link-icon"
+            )}
+          </li>
+          <li className="header-nav__item">
+            {renderLinkAndHightlightActive(
+              "/notes",
+              "Notas",
+              "far fa-sticky-note nav-link-icon"
+            )}
+          </li>
+        </ul>
+      </nav>
+    </header>
+  );
+};
 
 export default Header;

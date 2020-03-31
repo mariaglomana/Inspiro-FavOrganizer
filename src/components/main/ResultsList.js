@@ -6,57 +6,53 @@ import "../../styles/layout/_loader.scss";
 const ResultsList = props => {
   const {
     items,
-    userFavs,
+    favsSearchSubject,
     notFoundMessage,
     loading,
-    updateFavs,
-    updateResults
+    updateFavs
   } = props;
-  if (loading) {
+
+  if (loading)
     return (
       <div className="results-notFound__wrapper">
         <div className="lds-hourglass"></div>
         <div>Cargando...</div>
       </div>
     );
-  } else {
-    if (items.length > 0) {
-      return (
-        <div className="main-section__wrapper">
-          <div className="main-section__header">
-            <h1 className="main-section__header--title">Resultados</h1>
-          </div>
-          <ul className="list__wrapper">
-            {items.map(function(item, index) {
-              item.isSaved =
-                userFavs[item.type].filter(
-                  favourite => favourite.id === item.id
-                ).length > 0;
 
-              return (
-                <li key={item.id}>
-                  {/* <Link to={`/book/${item.id}`} className=""> */}
-                  <ResultsItem
-                    item={item}
-                    index={index}
-                    updateFavs={updateFavs}
-                    updateResults={updateResults}
-                  />
-                  {/* </Link> */}
-                </li>
-              );
-            })}
-          </ul>
+  if (items.length > 0)
+    return (
+      <div className="main-section__wrapper">
+        <div className="main-section__header">
+          <h1 className="main-section__header--title">Resultados</h1>
         </div>
-      );
-    } else {
-      return (
-        <div className="results-notFound__wrapper">
-          <span>{notFoundMessage}</span>
-        </div>
-      );
-    }
-  }
+        <ul className="list__wrapper">
+          {items.map(function(item) {
+            const isSaved =
+              favsSearchSubject.filter(favourite => favourite.id === item.id)
+                .length > 0;
+
+            return (
+              <li key={item.id}>
+                {/* <Link to={`/book/${item.id}`} className=""> */}
+                <ResultsItem
+                  item={item}
+                  isSaved={isSaved}
+                  updateFavs={updateFavs}
+                />
+                {/* </Link> */}
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    );
+
+  return (
+    <div className="results-notFound__wrapper">
+      <span>{notFoundMessage}</span>
+    </div>
+  );
 };
 
 export default ResultsList;
