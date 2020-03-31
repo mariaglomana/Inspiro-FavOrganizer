@@ -1,26 +1,90 @@
-.seach-new {
+.search-new {
   &__wrapper {
     height: 68vh;
+    font-size: 22px;
     background-color: $orange;
   }
-  &-form__wrapper {
+
+  &__form-wrapper {
     margin: 0 25px;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: flex-start;
   }
-  &-input {
-    &__wrapper {
+
+  &__select {
+    &-wrapper {
+      font-size: 32px;
+      font-weight: 700;
+      margin-top: 60px;
       display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-    &__text {
-      margin-right: 36px;
+
+    &-label {
+      margin-bottom: 10px;
+    }
+
+    &-options {
+      text-align: center;
+      margin-top: 20px;
+      background-color: $orange;
+      &--selected {
+        background-color: blue;
+      }
+    }
+  }
+
+  &__input {
+    &-wrapper {
+      display: flex;
+      margin: 40px;
+    }
+    &-text {
+      padding-left: 9px;
+    }
+  }
+
+  &__btn {
+    background-color: black;
+    color: white;
+    -webkit-appearance: none;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 8px;
+    &:hover {
+      color: black;
+      background-color: $grey-cloud;
     }
   }
 }
-.fa-search {
-  display: inline;
-  padding: 10px;
+
+.results-notFound__wrapper {
+  height: 56vh;
+  font-size: 20px;
+  max-width: 50%;
+  margin: auto;
+  text-align: center;
+  line-height: 40px;
+  padding-top: 115px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.fa-save,
+.fa-trash-alt {
+  color: $orange;
+}
+
+.savedItem {
+  background-color: $orange;
+  color: white;
+}
+
+.newItem {
+  background-color: white;
+  color: black;
 }

@@ -1,36 +1,46 @@
 .item {
   &__wrapper {
     display: flex;
-    padding: 4px;
+    padding: 10px;
     margin: 9px auto;
     max-width: 253px;
-    background-color: $white;
     border: 1px solid $grey-lead;
     border-radius: 5px;
   }
 
   &__image {
+    max-width: 50px;
+    max-height: 75px;
+    &--wrapper {
+      display: flex;
+      align-items: center;
+    }
   }
   &__text {
     &--wrapper {
       margin-left: 10px;
-      display: flex;
-      flex-direction: column;
-      min-width: 185px;
+      width: 171px;
+      display: inline;
     }
     &--fav-btn {
       border: 0;
-      padding: 0;
       -webkit-appearance: none;
       align-self: flex-end;
       background-color: white;
+      float: right;
     }
 
     &--title {
       margin: 0;
+      color: $grey-coal;
     }
     &--detail {
       margin: 0;
+    }
+    &--link {
+      font-size: 11px;
+      margin-top: 4px;
+      color: $grey-lead;
     }
   }
 }

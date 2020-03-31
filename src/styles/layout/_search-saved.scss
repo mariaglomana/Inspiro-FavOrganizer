@@ -1,0 +1,29 @@
+.search {
+  &__wrapper {
+    padding-bottom: 15px;
+  }
+  &-form__wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  &-inputText {
+    &__wrapper {
+      display: flex;
+    }
+    &__input {
+      padding-left: 9px;
+      border: 2px black solid;
+      border-radius: 17px;
+    }
+  }
+}
+.fa-search {
+  display: inline;
+  padding: 10px;
+}
+.form__input-text {
+  margin-right: 36px;
+}

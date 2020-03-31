@@ -1,14 +1,17 @@
 .main-section {
   &__wrapper {
-    padding: 2px 25px;
     background-color: $grey-cloud;
+    min-height: 72vh;
   }
   &__header {
+    height: 16vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 0;
-    padding: 20px 0;
+    padding: 22px 25px;
+
+    // padding: 20px 0;
     &--btns {
       &-item {
         margin: 0.67em 5px;

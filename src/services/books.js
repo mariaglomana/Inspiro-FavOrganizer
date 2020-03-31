@@ -1,80 +1,53 @@
-//he transformado imageSmall, original de la API a imageSmall
+import defBookCover from "../images/defBookCover.png";
 
-const books = {
-  results: [
-    {
-      type: "book",
-      id: "2422333",
-      title: "Ender's Game",
-      author: "Orson Scott Card",
-      image:
-        "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1408303130l/375802._SY160_.jpg",
-      imageSmall:
-        "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1408303130l/375802._SY75_.jpg",
-      year: "1985",
-      link: "375802"
-    },
-    {
-      type: "book",
-      id: "55447683",
-      title: "End Game",
-      author: "David Baldacci",
-      image:
-        "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1495976812l/34368113._SX98_.jpg",
-      imageSmall:
-        "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1495976812l/34368113._SY75_.jpg",
-      year: "2017",
-      link: "34368113"
-    },
-    {
-      type: "book",
-      id: "42437887",
-      title: "The End Game",
-      author: "Kate McCarthy",
-      image:
-        "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1423089153l/22874150._SX98_.jpg",
-      imageSmall:
-        "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1423089153l/22874150._SY75_.jpg",
-      year: "2015",
-      link: "22874150"
-    },
-    {
-      type: "book",
-      id: "26343184",
-      title: "End Game ",
-      author: "John Gilstrap",
-      image:
-        "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1389598387l/18596481._SY160_.jpg",
-      imageSmall:
-        "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1389598387l/18596481._SY75_.jpg",
-      year: "2014",
-      link: "18596481"
-    },
-    {
-      type: "book",
-      id: "27214835",
-      title: "La historia interminable del siglo XXI",
-      author: "Sonia Tomás Cañadas",
-      image:
-        "https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png",
-      imageSmall:
-        "https://s.gr-assets.com/assets/nophoto/book/50x75-a91bf249278a81aabab721ef782c4a74.png",
-      year: "2013",
-      link: "19173317"
-    },
-    {
-      type: "book",
-      id: "1122661",
-      title: "La historia interminable",
-      author: "Michael Ende",
-      image:
-        "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1298569792l/72029._SY160_.jpg",
-      imageSmall:
-        "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1298569792l/72029._SY75_.jpg",
-      year: "1979",
-      link: "72029"
-    }
-  ]
+const BOOKS_ENDPOINT = "https://www.googleapis.com/books/v1/volumes?q=";
+const BOOKS_APIKEY = "&key=AIzaSyAVy2FQZgnT0i3ri5vC_T_1prZsc8HLxIc";
+
+// const deleteRepeated = results => {
+//   const allTitles = results.map(book => book.title);
+//   const titles = [...new Set(allTitles)];
+//   results.reduce((unique, item) => {
+//     let indexTitle = titles.indexOf(item.title);
+//     return indexTitle === -1
+//       ? unique
+//       : [...unique, item] && titles.splice(indexTitle, 1);
+//   }, []);
+//   return results;
+// };
+
+const getBooksFromApi = searchText => {
+  return fetch(BOOKS_ENDPOINT + searchText + BOOKS_APIKEY, {
+    method: "GET"
+  })
+    .then(response => response.json())
+    .then(result =>
+      result.items !== undefined
+        ? result.items.reduce((unique, bookItem) => {
+            let book = {};
+            book.type = "books";
+            book.id = bookItem.id;
+            book.title = bookItem.volumeInfo.title;
+            book.authors = bookItem.volumeInfo.authors;
+            if (bookItem.volumeInfo.imageLinks === undefined) {
+              book.image = defBookCover;
+            } else {
+              book.image = bookItem.volumeInfo.imageLinks.smallThumbnail;
+            }
+            book.year = bookItem.volumeInfo.publishedDate;
+            if (book.year !== undefined) {
+              book.year = book.year.slice(0, 4);
+            }
+            return book.authors === undefined ||
+              book.image === undefined ||
+              book.year === undefined
+              ? unique
+              : [...unique, book];
+          }, [])
+        : ""
+    )
+    .catch(function(error) {
+      console.error("Looks like there was a problem: \n", error);
+    });
 };
 
-export default books;
+export default getBooksFromApi;

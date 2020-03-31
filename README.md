@@ -1,12 +1,12 @@
 ![Logo Inpiro](logoInspiro.png)
 
-# App para la organización de tus recursos favoritos
+# App for the organization of your most valuable resources
 
-> Este es un proyecto personal iniciado durante el desarrollo de un curso de programación Front-End en [Adalab](https://adalab.es/)
+This application will let users do searches for books, films and music they are interested in by filtering the results of different data bases such as Google Books , Spotify and OMDb. They will be able to save and organize all their favourite and most inspiring resources and even share them with others colleages already logged in.
 
-## Objetivos personales
+> This is a personal project initiated at the end of the [Adalab](https://adalab.es/) bootcamp where I made my first steps in the world of frontend development.
 
-Mis objetivos personales con este proyecto son:
+## Personal objectives
 
 - Mejorar mis conocimientos de CSS:
 
