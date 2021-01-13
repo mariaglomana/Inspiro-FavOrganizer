@@ -1,29 +1,8 @@
-
 .footer {
-    &__wrapper {
-        height: 10vh;
-        background-color: darkgray;
-        
-    }
-    &-content {
-        &__wrapper {
-            margin: 0 25px;
-            display: flex;
-            justify-content: space-between;
-        }
-        
-
-        &__nav {
-            height: 100%;
-            display: flex;
-            flex-wrap: nowrap;
-            flex-direction: row;
-            align-items: center;
-
-            &-item {
-                padding-left: 15px
-            }
-    
-        }
-    }
+  height: 10vh;
+  background-color: darkgray;
+  padding: 0 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

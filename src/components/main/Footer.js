@@ -1,19 +1,9 @@
 import React from "react";
 
-const Footer = () => {
-  return (
-    <div className="footer__wrapper">
-      <div className="footer-content__wrapper">
-        <h4>© Inspiro 2020</h4>
-        <nav>
-          <ul className="footer-content__nav">
-            <li className="footer-content__nav-item">Acerca</li>
-            <li className="footer-content__nav-item">Contacto</li>
-          </ul>
-        </nav>
+const Footer = () => (<div className="footer">
+        <p>© Inspiro 2021</p>
+        <a href="mailto:mariagarciadelomana@gmail.com">Contacto</a>
       </div>
-    </div>
   );
-};
 
 export default Footer;
