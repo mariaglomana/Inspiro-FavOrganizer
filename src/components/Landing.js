@@ -1,5 +1,5 @@
 import React from "react";
-import logoInspiro from "../../images/logoInspiro.png";
+import logoInspiro from "../images/logoInspiro.png";
 import { Link } from "react-router-dom";
 
 const Landing = () => {

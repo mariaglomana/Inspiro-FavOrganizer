@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/App.scss";
 import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 
-import Landing from "./landing/Landing";
+import Landing from "./Landing";
 import MainApp from "./main/MainApp";
 
 export const ConfigContext = React.createContext();
