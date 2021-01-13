@@ -3,11 +3,24 @@ const MET_SEARCH_ENDPOINT =
 const MET_OBJECT_ENDPOINT =
   "https://collectionapi.metmuseum.org/public/collection/v1/objects/";
 
-function getarrIDsResults(searchText) {
-  return fetch(MET_SEARCH_ENDPOINT + searchText, {
-    method: "GET"
-  });
-}
+  const getArrIDsResults = async (searchText) => {
+    return fetch(MET_SEARCH_ENDPOINT + searchText, {
+      method: "GET"
+    }).then(response => response.json())
+    .catch(function(error) {
+      console.error("Error in getArrIDsResults: \n", error);
+    });
+  }
+  
+  const getArtResult = async (artID) => {
+    return fetch(MET_OBJECT_ENDPOINT + artID, {
+      method: "GET"
+    }).then(response => response.json())
+    .then(result => mapArtData(result))
+    .catch(function(error) {
+      console.error("Error in getArtResult: \n", error);
+    });
+  }
 
 const mapArtData = data => {
   const artObject = {};
@@ -20,41 +33,19 @@ const mapArtData = data => {
   return artObject;
 };
 
-function getArtFromAPI(searchText) {
-  const promise = new Promise();
+const getArtFromAPI = async (searchText) => {
+  const arrIDsResults = await getArrIDsResults(searchText);
 
-  const arrayPromises = [];
-
-  // fetch(MET_SEARCH_ENDPOINT + searchText, {
-  //   method: "GET"
-  // })
-  //   .then(response => response.json())
-  //   .then(data => {
-  //     arrIDsResults = data.objectIDs;
-  //     console.log(arrIDsResults);
-  getarrIDsResults(searchText)
-    .then(response => response.json())
-    .then(arrIDsResults => {
-      console.log(arrIDsResults);
-
-      for (let i = 0; i < 50; i++) {
-        const result = arrIDsResults[i];
-        const resPromise = fetch(MET_OBJECT_ENDPOINT + result).then(response =>
-          response.json()
-        );
-        arrayPromises.push(resPromise);
-      }
-
-      Promise.all(arrayPromises).then(detailArtData => {
-        const arrayResult = detailArtData.forEach(mapArtData);
-        promise.resolve(arrayResult);
-      });
-    })
-    .catch(function(error) {
-      console.error("Looks like there was a problem: \n", error);
-    });
-
-  return promise;
+  if (arrIDsResults.total !== 0) {
+      const resultsArray = [];
+    const numberOfResults = arrIDsResults.total > 20 ? 20 : arrIDsResults.total;
+    for (let i= 0; i < numberOfResults; i++) {
+      const artResult = await getArtResult(arrIDsResults.objectIDs[i])
+      resultsArray.push(artResult)
+    }
+    return resultsArray;
+  }
+  return [];
 }
 
 export default getArtFromAPI;

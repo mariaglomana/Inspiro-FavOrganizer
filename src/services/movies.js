@@ -25,7 +25,7 @@ const getMoviesFromApi = searchText => {
         : ""
     )
     .catch(function(error) {
-      console.error("Looks like there was a problem: \n", error);
+      console.error("Error recovering movies: \n", error);
     });
 };
 

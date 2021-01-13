@@ -46,7 +46,7 @@ const getBooksFromApi = searchText => {
         : ""
     )
     .catch(function(error) {
-      console.error("Looks like there was a problem: \n", error);
+      console.error("Error recovering books: \n", error);
     });
 };
 

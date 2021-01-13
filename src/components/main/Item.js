@@ -4,7 +4,8 @@ const Item = ({ item, removeFav }) => {
   const { title, authors, image, year, id } = item;
   let strAuthors = "";
 
-  if (authors !== undefined) {
+  if (authors && authors.lenght > 1) {
+    console.log("authors", authors)
     const formatAuthors = arr => {
       const lastAuth = arr.pop();
       return arr.lenght ? arr.join(", ") + " y " + lastAuth : lastAuth || "";

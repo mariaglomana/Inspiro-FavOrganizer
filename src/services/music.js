@@ -41,7 +41,7 @@ const getMusicFromApi = searchText => {
         : "";
     })
     .catch(function(error) {
-      console.error("Looks like there was a problem: \n", error);
+      console.error("Error recovering music: \n", error);
     });
 };
 

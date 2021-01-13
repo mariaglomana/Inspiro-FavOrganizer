@@ -3,7 +3,7 @@ import React from "react";
 const ResultsItem = props => {
   const { item, isSaved, updateFavs } = props;
   const { title, authors, image, year, id } = item;
-  let strAuthors = "";
+  let strAuthors = authors;
 
   if (authors !== undefined && Array.isArray(authors)) {
     const formatAuthors = arr => {
@@ -34,13 +34,13 @@ const ResultsItem = props => {
         </button>
         <h3 className="item__text--title">{title}</h3>
         <p className="item__text--detail">
-          {authors !== undefined ? `${strAuthors}, ` : ``}
-          {year !== undefined ? `${year}, ` : ``}
+          {authors.length !== 0 && `${strAuthors}, `}
+          {year && `${year}.`}
         </p>
         <small className="item__text--link">
-          {/* <a href="google.com" target="_blank"> */}
+          {/* <a href="google.com" target="_blank">
           Ver detalle
-          {/* </a> */}
+          </a> */}
         </small>
       </div>
     </div>
