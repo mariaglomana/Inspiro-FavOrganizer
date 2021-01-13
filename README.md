@@ -1,52 +1,14 @@
-![Logo Inpiro](logoInspiro.png)
+<img src="logoInspiro.png" alt="Logo Inpiro" width="400"/>
 
-# App for the organization of your most valuable resources
+# App for the organization of your most valuable sources of inspiration
 
-This application will let users do searches for books, films and music they are interested in by filtering the results of different data bases such as Google Books , Spotify and OMDb. They will be able to save and organize all their favourite and most inspiring resources and even share them with others colleages already logged in.
+This application let users save a reference to books, films and works of art they are interested in. This is made possible by the data provided by several public APIs:
 
-> This is a personal project initiated at the end of the [Adalab](https://adalab.es/) bootcamp where I made my first steps in the world of frontend development.
+- [Google Books API](https://developers.google.com/books/docs/v1/reference/),
+- [OMDb](https://www.omdbapi.com/)
+- [The Metropolitan Museum of Art (New York)](https://metmuseum.github.io/).
 
-## Personal objectives
+The ultimate purpose is offering a place where you can collect all your favourite and most inspiring resources.
 
-- Mejorar mis conocimientos de CSS:
-
-  - Definición de una guía de estilo.
-  - Integración de animaciones en fondos y activadas por el usuario.
-  - Dominar Flexbox y posicionamiento de elementos.
-  - Conocimiento de una librera de diseño como Material Design
-
-- Mejorar mis conocimientos de JavaScript y React:
-
-  - Conseguir una SPA dinámica e interactiva con React Router.
-  - Realización de llamadas a varias APIs diferentes en serie o en paralelo.
-  - Dominar eventos, estados y los métodos del ciclo de vida de los componentes de React.
-  - Crear un código optimizado y de fácil mantenimiento.
-
-- Mejorar cualidades complementarias a la programación:
-  - Realizar un diseño de la interfaz de usuario atractivo a la vez que práctico y adaptable a diferentes dispositivos.
-  - Ganar experiencia en la planificación y desarrollo de un producto digital desde cero.
-
-## Objetivo del proyecto
-
-El objetivo de la aplicación sería proporcionar un único espacio en el que reunir las cosas que más te gustan, que te apasionan e inspiran.
-
-Con esta aplición podrás explorar, guardar y organizar en un lugar siempre accesible toda tu **música**, **libros** y **películas** preferidos, pudiendo añadir una referencia personal a cada elemento que facilite encontrarlo tiempo después. También podrás compartir con otros usuarios tus recomendaciones o ver sus listas de favoritos. Por último, la sección de **notas** te permite también tener a mano un diario, o un editor en el que registrar tus ideas, los borradores de tus publicaciones o tus artículos.
-
-## Características generales
-
-La web contará con las siguientes funcionalidades:
-
-- Que permita hacer búsquedas de diferentes recursos: música, libros o películas.
-- Que pueda guardar elementos de forma personalizada, añadiendo comentarios y una clasificación propia.
-- Que muestre listados filtrados por diferentes criterios.
-- Que contenga una sección de anotaciones en las que guardar comentarios y enlaces a los recursos.
-- Que guarde mis datos de una sesión a otra.
-- Que permita traer la información de páginas especializadas en un tipo de recurso ([Spotify](https://developer.spotify.com/), [goodreads](https://www.goodreads.com/api/) y [OMDB](https://omdbapi.com/))
-- Que permita interactuar con otros usuarios de la aplicación compartiendo mis elementos favoritos.
-
-## Fases del proyecto
-
-- [Fase 1](./FASE-1.md)
-- [Fase 2](./FASE-2.md)
-- [Fase 3](./FASE-3.md)
-- [Fase 4](./FASE-4.md)
+I'll be very glad to recive any comment or review!
+Thanks for visiting 😀
